@@ -45,7 +45,7 @@
                     @foreach($worships as $item)
                     <div class="col-lg-4 col-md-6 d-flex">
                         <div class="member">
-                            <a><img src="{{asset('backend/assets/images/wp7057753-youtube-thumbnails-wallpapers.jpg')}}" href="#"alt="" class="img-fluid"></a>
+                            <a href="{!! $item->worships_url !!}"><img src="{{asset('backend/assets/images/wp7057753-youtube-thumbnails-wallpapers.jpg')}}" alt="" class="img-fluid"></a>
 {{--                            <img src="{{asset('front_end/assets/img/hero-img.png')}}" class="img-fluid" alt="">--}}
                             <div class="member-content">
                                 <h4>{{$item->worships_name}}</h4>
