@@ -18,12 +18,12 @@ class WorshipController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'series_name'=>'required',
-            'series_url'=>'required',
-            'series_description'=>'required'
-
-        ]);
+//        $request->validate([
+//            'worship_name'=>'required',
+//            'worship_url'=>'required',
+//            'worship_description'=>'required'
+//
+//        ]);
 //        $request->validate(['blog_category'=>'required'],['blog_category.required'=>'blog category name ግዴታ ነው',]);
 
         Worships::insert([
