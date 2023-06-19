@@ -1,4 +1,6 @@
-
+@php
+$route=Route::current()->getName();
+@endphp
 <!-- ======= Header ======= -->
 <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
@@ -8,7 +10,6 @@
             <!-- <img src="assets/img/logo.png" alt=""> -->
             <h1>Naioth in Ramah</h1>
         </a>
-
         <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
         <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
         <nav id="navbar" class="navbar">
@@ -41,7 +42,8 @@
                         <li><a href="{{route('events')}}" class='{{($route=='events')?'active':' '}}'> Events </a></li>
                     </ul>
                 </li>
-                <li><a href="{{route('contact')}}">Contact</a></li>
+                <li><a href="{{route('contact')}}"class='{{($route=='contact')?'active':' '}}'>Contact</a></li>
+
                 <li><a class="get-a-quote" href="{{route('contact')}}">አማርኛ/English</a></li>
             </ul>
         </nav><!-- .navbar -->

@@ -156,6 +156,7 @@ Route::get('/galleries/all', [GalleryController::class, 'AllImages'])->name('all
 Route::Post('/update/images', [GalleryController::class, 'UpdateImage'])->name('update.image');
 Route::get('/edit/image/{id}', [GalleryController::class, 'EditImage'])->name('edit.image');
 Route::get('/delete/image/{id}', [GalleryController::class, 'DeleteImage'])->name('delete.image');
+Route::post('/delete-images', [GalleryController::class, 'deletemultipleimages'])->name('delete.images');
 
 //testimonies
 Route::get('/testimonies/create', [TestimonyController::class, 'create'])->name('create.testimony');

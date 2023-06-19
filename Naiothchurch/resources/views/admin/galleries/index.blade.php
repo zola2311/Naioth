@@ -30,41 +30,50 @@
 
                             <h4 class="card-title">All Gallery Image </h4>
 
-
+                            <form method="post" action="{{ route('delete.images') }}">
+                                @csrf
                             <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
-                                <thead>
+                            <thead>
+                            <tr>
+                                <th>Sl</th>
+                                <th>Gallery Images</th>
+                                <th>Action</th>
+                                <th>Select</th> <!-- Add a new column for checkboxes -->
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @php($i = 1)
+                            @foreach($allImages as $item)
                                 <tr>
-                                    <th>Sl</th>
-                                    <th>Gallery Images</th>
-                                    <th>Action</th>
+                                    <td>{{ $i++}}</td>
+                                    <td>
+                                        <img src="{{ asset($item->images) }}" style="width: 60px; height: 50px;">
+                                    </td>
+                                    <td>
+                                        <a href="{{ route('edit.image',$item->id) }}" class="btn btn-info sm" title="Edit Data">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                        <a href="{{ route('delete.image',$item->id) }}" class="btn btn-danger sm" title="Delete Data" id="delete">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </a>
+                                    </td>
 
-                                </thead>
 
-
-                                <tbody>
-                                @php($i = 1)
-                                @foreach($allImages as $item)
-                                    <tr>
-                                        <td>
-                                            {{ $i++}}
-                                        </td>
-                                        <td>
-                                            <img src="{{ asset($item->images) }}" style="width: 60px; height: 50px;">
-                                        </td>
+                                        <!-- Your existing table data -->
 
                                         <td>
-                                            <a href="{{ route('edit.image',$item->id) }}" class="btn btn-info sm" title="Edit Data">  <i class="fas fa-edit"></i> </a>
-
-                                            <a href="{{ route('delete.image',$item->id) }}" class="btn btn-danger sm" title="Delete Data" id="delete">  <i class="fas fa-trash-alt"></i> </a>
-
+                                            <input type="checkbox" name="selected_images[]" value="{{ $item->id }}">
                                         </td>
 
-                                    </tr>
-                                @endforeach
 
-                                </tbody>
+                                </tr>
+                            @endforeach
+                            </tbody>
                             </table>
-
+                                <div class="mt-3">
+                                    <button type="submit" class="btn btn-danger">Delete Selected Images</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div> <!-- end col -->
