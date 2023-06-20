@@ -19,9 +19,9 @@ class WorshipController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'series_name'=>'required',
-            'series_url'=>'required',
-            'series_description'=>'required'
+            'worships_name'=>'required',
+            'worships_url'=>'required',
+            'worships_description'=>'required'
 
         ]);
 //        $request->validate(['blog_category'=>'required'],['blog_category.required'=>'blog category name ግዴታ ነው',]);
