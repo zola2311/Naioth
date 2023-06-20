@@ -71,15 +71,7 @@
                 </div>
 
 
-                {{--                @foreach ($categories as $category)--}}
-                {{--                    <h3>{{$category->name}}</h3>--}}
-                {{--                    <p>{{$category->description}}</p>--}}
 
-                {{--                    @foreach ($category->galleries as $gallery)--}}
-                {{--                        <img src="{{$category->category_image}}" class="img-fluid" alt="">--}}
-                {{--                        <a href="{{route('gallery.category', $gallery->category_id)}}">{{$category->name}}</a>--}}
-                {{--                    @endforeach--}}
-                {{--                @endforeach--}}
 
             </div>
         </section><!-- End Services Section -->

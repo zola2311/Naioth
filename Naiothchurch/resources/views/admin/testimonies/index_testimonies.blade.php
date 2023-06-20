@@ -55,7 +55,7 @@
                                         <td> {{ $i++}} </td>
                                         <td> {{ $item->testimonies_name}} </td>
                                         <td> {{ Str::limit($item->testimonies_description, 50)}} </td>
-                                        <td> {{ $item->testimonies_url}} </td>
+{{--                                        <td> {{ $item->testimonies_url}} </td>--}}
 
                                         <td>
                                             <a href="{{ route('edit.testimony',$item->id) }}" class="btn btn-info sm" title="Edit Data">  <i class="fas fa-edit"></i> </a>
