@@ -22,6 +22,7 @@ class GalleryController extends Controller
 
 //
 
+
     public function StoreMultiImage(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -36,6 +37,7 @@ class GalleryController extends Controller
             'images.*.mimes' => 'Only JPEG, PNG, JPG, and GIF images are allowed.',
             'images.*.max' => 'The maximum file size allowed is 2MB.',
         ]);
+
 
         if ($validator->fails() || $request->file('images') === null) {
             return redirect()->back()->withErrors($validator)->withInput();
@@ -62,6 +64,10 @@ class GalleryController extends Controller
 
         return redirect()->route('all.images')->with($notification);
     }
+
+
+        return redirect()->route('all.images')->with($notification);
+    
 
 
 
@@ -132,7 +138,6 @@ class GalleryController extends Controller
         );
 
         return redirect()->back()->with($notification);
-
 
 
     }// End Method
