@@ -43,7 +43,6 @@
                 </div>
 
                 <div class="row gy-4">
-
                     @foreach($prayers as $item)
                         <div class="col-lg-4 col-md-6 d-flex">
                             <div class="member">
@@ -58,7 +57,6 @@
                             </div>
                         </div>
                     @endforeach
-
                 </div>
         </section><!-- End Prayers Section -->
 
