@@ -120,7 +120,6 @@ Route::controller(GalleryController::class)->group(function () {
 //    Route::post('/store/multi/image', 'StoreGalleryMulti')->name('store.multi.image');
 //    Route::get('/all/multi/image', 'AllMultiImage')->name('all.gallery.image');
 
-
 });
 
 //Route::resource('gallery-categories', GalleryCategoryController::class)->only(['index', 'create', 'store']);
@@ -149,13 +148,13 @@ Route::post('/update/categories', [CategoryController::class, 'UpdateCategory'])
 Route::get('/delete/categories/{id}', [CategoryController::class, 'DeleteCategory'])->name('delete.category');
 
 
-
 Route::get('/galleries/create', [GalleryController::class, 'create'])->name('images.upload');
 Route::post('/galleries', [GalleryController::class, 'StoreMultiImage'])->name('images.store');
 Route::get('/galleries/all', [GalleryController::class, 'AllImages'])->name('all.images');
 Route::Post('/update/images', [GalleryController::class, 'UpdateImage'])->name('update.image');
 Route::get('/edit/image/{id}', [GalleryController::class, 'EditImage'])->name('edit.image');
 Route::get('/delete/image/{id}', [GalleryController::class, 'DeleteImage'])->name('delete.image');
+Route::post('/delete-images', [GalleryController::class, 'deletemultipleimages'])->name('delete.images');
 
 //testimonies
 Route::get('/testimonies/create', [TestimonyController::class, 'create'])->name('create.testimony');

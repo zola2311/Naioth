@@ -21,16 +21,19 @@ class CategoryController extends Controller
     {
         //$test=dd($request);
         $request->validate([
-            'name' => 'required|string|max:255|unique:categories,name',
-            'category_image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            'name' => 'required|alpha',
+            'category_image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
             'description' => 'required',
         ],[
-            'name.required'=>'category name is required',
-            'category_image.required' =>'category image required',
+            'name.required' => 'The name field is required.',
+            'name.alpha' => 'The name field should only contain alphabetic characters.',
             'description.required' =>'category description required',
-
-
+            'category_image.required' => 'Please select an image.',
+            'category_image.image' => 'The file must be an image.',
+            'category_image.mimes' => 'Only JPEG, PNG, JPG, and GIF images are allowed.',
+            'category_image.max' => 'The maximum file size allowed is 2MB.',
         ]);
+
         $category_image = $request->file('category_image');
 
         $name_gen = hexdec(uniqid()).'.'.$category_image->getClientOriginalExtension();  // 3434343443.jpg
@@ -69,6 +72,18 @@ class CategoryController extends Controller
 
 
     public function UpdateCategory(Request $request){
+        $request->validate([
+            'name' => 'required|alpha',
+            'category_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'description' => 'required',
+        ],[
+            'name.required' => 'The name field is required.',
+            'name.alpha' => 'The name field should only contain alphabetic characters.',
+            'description.required' =>'Category description required.',
+            'category_image.image' => 'The file must be an image.',
+            'category_image.mimes' => 'Only JPEG, PNG, JPG, and GIF images are allowed.',
+            'category_image.max' => 'The maximum file size allowed is 2MB.',
+        ]);
 
         $category_id = $request->id;
 
