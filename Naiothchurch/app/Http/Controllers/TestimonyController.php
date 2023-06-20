@@ -21,9 +21,8 @@ class TestimonyController extends Controller
     public function StoreTestimony(Request $request){
         $request->validate([
             'testimonies_name'=>'required',
-            'testimonies_url'=>'required',
+            'testimonies_url'=>'required|url',
             'testimonies_description'=>'required'
-
         ]);
 //        $request->validate(['blog_category'=>'required'],['blog_category.required'=>'blog category name ግዴታ ነው',]);
 

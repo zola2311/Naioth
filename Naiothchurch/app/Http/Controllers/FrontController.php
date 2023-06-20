@@ -11,6 +11,7 @@ use App\Models\Sermons;
 use App\Models\Shorts;
 use App\Models\Testimonies;
 use App\Models\Worships;
+use App\Models\Others;
 use Illuminate\Http\Request;
 
 class FrontController extends Controller

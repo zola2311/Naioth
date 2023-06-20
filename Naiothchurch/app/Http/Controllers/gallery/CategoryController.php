@@ -21,12 +21,11 @@ class CategoryController extends Controller
     {
         //$test=dd($request);
         $request->validate([
-            'name' => 'required|alpha',
+            'name' => 'required',
             'category_image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
             'description' => 'required',
         ],[
             'name.required' => 'The name field is required.',
-            'name.alpha' => 'The name field should only contain alphabetic characters.',
             'description.required' =>'category description required',
             'category_image.required' => 'Please select an image.',
             'category_image.image' => 'The file must be an image.',
