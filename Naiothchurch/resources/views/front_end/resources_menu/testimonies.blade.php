@@ -37,39 +37,29 @@
         <!-- ======= Videos - From About Us Section ======= -->
         <section id="about" class="about pt-0">
             <div class="container" data-aos="fade-up">
-                @foreach($testimonies as $item)
-                    <div class="col-lg-4 position-relative align-self-start order-lg-last order-first">
-                        <img src="{{asset('front_end/assets/img/hero-img.png')}}" class="img-fluid" alt="">
-                        <a href="{{$item->testimonies_name}}" class="glightbox play-btn"></a>
-                    </div>
-                @endforeach
-
                 <div class="container" data-aos="fade-up">
                     <div class="section-header">
-                        <h2> Recordings </h2>
+                        <h2> Testimonies </h2>
                     </div>
 
                     <div class="row gy-4">
-                        <div class="col-lg-4 position-relative align-self-start order-lg-last order-first">
-                            <img src="{{asset('front_end/assets/img/hero-img.png')}}" class="img-fluid" alt="">
-                            <a href="https://www.youtube.com/watch?v=sFuwFhGcmGM" class="glightbox play-btn"></a>
-                        </div>
-
-                        <div class="col-lg-4 position-relative align-self-start order-lg-last order-first">
-                            <img src="{{asset('front_end/assets/img/hero-img.png')}}" class="img-fluid" alt="">
-                            <a href="https://www.youtube.com/watch?v=sFuwFhGcmGM" class="glightbox play-btn"></a>
-                        </div>
-
-                        <div class="col-lg-4 position-relative align-self-start order-lg-last order-first">
-                            <img src="{{asset('front_end/assets/img/hero-img.png')}}" class="img-fluid" alt="">
-                            <a href="https://www.youtube.com/watch?v=sFuwFhGcmGM" class="glightbox play-btn"></a>
-                        </div>
+                        @foreach($testimonies as $item)
+                            <div class="col-lg-4 col-md-6 d-flex">
+                                <div class="member">
+                                    <a href="{!! $item->testimonies_url !!}"><img src="{{asset('backend/assets/images/wp7057753-youtube-thumbnails-wallpapers.jpg')}}" alt="" class="img-fluid"></a>
+                                    {{--                            <img src="{{asset('front_end/assets/img/hero-img.png')}}" class="img-fluid" alt="">--}}
+                                    <div class="member-content">
+                                        <h4>{{$item->testimonies_name}}</h4>
+                                        <p>
+                                            {{$item->testimonies_description }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
-
         </section><!-- End About Us Section -->
-
     </main><!-- End #main -->
-
 @endsection

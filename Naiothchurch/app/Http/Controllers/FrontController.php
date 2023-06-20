@@ -63,8 +63,8 @@ class FrontController extends Controller
 
     public function others()
     {
-
-        return view('front_end.resources_menu.teachings.others');
+        $others = Others::latest()->get();
+        return view('front_end.resources_menu.teachings.others', compact('worships'));
     }
 
     public function series()
