@@ -22,11 +22,11 @@ class GalleryController extends Controller
 //
 
     public function StoreMultiImage(Request $request){
-        $request->validate([
-
-            'images' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
-
-        ]);
+//        $request->validate([
+//
+//            'images' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+//
+//        ]);
 
         $image = $request->file('images');
 
@@ -52,8 +52,8 @@ class GalleryController extends Controller
             'alert-type' => 'success'
         );
 
-        //return redirect()->route('all.multi.image')->with($notification);
-        return redirect()->back()->with($notification);
+        return redirect()->route('all.images')->with($notification);
+        //return redirect()->back()->with($notification);
 
     }// End Method
 
@@ -110,7 +110,6 @@ class GalleryController extends Controller
         );
 
         return redirect()->back()->with($notification);
-
 
 
     }// End Method

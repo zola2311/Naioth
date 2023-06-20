@@ -120,7 +120,6 @@ Route::controller(GalleryController::class)->group(function () {
 //    Route::post('/store/multi/image', 'StoreGalleryMulti')->name('store.multi.image');
 //    Route::get('/all/multi/image', 'AllMultiImage')->name('all.gallery.image');
 
-
 });
 
 //Route::resource('gallery-categories', GalleryCategoryController::class)->only(['index', 'create', 'store']);
@@ -147,7 +146,6 @@ Route::get('/categories', [CategoryController::class, 'index'])->name('categorie
 Route::get('/edit/categories/{id}', [CategoryController::class, 'EditCategory'])->name('edit.category');
 Route::post('/update/categories', [CategoryController::class, 'UpdateCategory'])->name('update.category');
 Route::get('/delete/categories/{id}', [CategoryController::class, 'DeleteCategory'])->name('delete.category');
-
 
 
 Route::get('/galleries/create', [GalleryController::class, 'create'])->name('images.upload');
