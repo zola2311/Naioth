@@ -91,6 +91,7 @@ class FrontController extends Controller
     {
         return view('front_end.contact');
     }
+
     public function category($category_id){
 
         $category = Category::where('id', $category_id)->get();

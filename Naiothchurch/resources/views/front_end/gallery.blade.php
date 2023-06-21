@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -100,88 +101,33 @@
 
 {{--// Yield here the contents from main--}}
 @section('title')
-        Naioth in Ramah | Categories
-    @endsection
+    Naioth in Ramah | Categories
+@endsection
 
-        @php
-            $route = Route::current()->getName();
-        @endphp
+@php
+    $route = Route::current()->getName();
+@endphp
 <br>
 <br>
-        <div class="container gallery-container">
-            @foreach ($category as $catego)
-                <h1>{{ $catego->name }}</h1>
+<div class="container gallery-container">
+    @foreach ($category as $catego)
+        <h1>{{ $catego->name }}</h1>
+    @endforeach
+
+    <div class="tz-gallery">
+        @foreach ($category as $categor)
+            @foreach ($categor->galleries as $gallery)
+                <div class="col-sm-6 col-md-4">
+                    <a class="lightbox" href="{{asset($gallery->images)}}">
+                        <img src="{{asset($gallery->images)}}" alt="Park">
+                    </a>
+                </div>
             @endforeach
-
-            <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
-            <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
-            <nav id="navbar" class="navbar">
-                <ul>
-                    <li><a href="{{route('home')}}" class='{{($route=='home')?'active':' '}}'>Home</a></li>
-                    <li class="dropdown"><a href="#"><span>About</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
-                        <ul>
-                            <li><a href="{{route('about')}}" class='{{($route=='about')?'active':' '}}'> About Naoith in Ramah </a></li>
-                            <li><a href="{{route('believe')}}" class='{{($route=='believe')?'active':' '}}'> What we believe </a></li>
-                            <li><a href="{{route('members')}}" class='{{($route=='members')?'active':' '}}'>Our members</a></li>
-                            <li><a href="{{route('testimonies')}}" class='{{($route=='testimonies')?'active':' '}}'>Testimonies</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="{{route('gallery')}}" class='{{($route=='gallery')?'active':' '}}'>Gallery</a></li>
-                    <li><a href="{{route('worships')}}" class='{{($route=='worships')?'active':' '}}'>Worships-Songs</a></li>
-                    <li class="dropdown"><a href="#"><span>Resources</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
-                        <ul>
-                            <li><a href="{{route('prayers')}}" class='{{($route=='prayers')?'active':' '}}'> Prayers </a></li>
-                            <li class="dropdown"><a href="#"><span>Teachings</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
-                                <ul>
-                                    <li><a href="{{route('sermons')}}" class='{{($route=='sermons')?'active':' '}}'> Sunday Sermons </a></li>
-                                    <li><a href="{{route('shorts')}}" class='{{($route=='shorts')?'active':' '}}'> Short Messages </a></li>
-                                    <li><a href="{{route('series')}}" class='{{($route=='series')?'active':' '}}'> Series</a></li>
-                                    <li><a href="{{route('articles')}}" class='{{($route=='articles')?'active':' '}}'> Articles </a></li>
-                                    <li><a href="{{route('others')}}" class='{{($route=='others')?'active':' '}}'> Other Collections </a></li>
-                                </ul>
-                            </li>
-                            <li><a href="{{route('worships')}}" class='{{($route=='worships')?'active':' '}}'> Worships-Songs </a></li>
-                            <li><a href="{{route('testimonies')}}" class='{{($route=='testimonies')?'active':' '}}'> Testimonies </a></li>
-                            <li><a href="{{route('events')}}" class='{{($route=='events')?'active':' '}}'> Events </a></li>
-                        </ul>
-                    </li>
-                    <li><a href="{{route('contact')}}">Contact</a></li>
-                    <li><a class="get-a-quote" href="{{route('contact')}}">አማርኛ/English</a></li>
-                </ul>
-            </nav><!-- .navbar -->
-
-        </div>
-    </header><!-- End Header -->
-    <!-- End Header -->
-
-    {{--// Yield here the contents from main--}}
-    {{--@yield('main')--}}
-
-    <div class="container gallery-container">
-        @foreach ($category as $catego)
-            <h1>{{ $catego->name }}</h1>
         @endforeach
-
-        <div class="tz-gallery">
-            @foreach ($category as $categor)
-                @foreach ($categor->galleries as $gallery)
-                    <div class="col-sm-6 col-md-4">
-                        <a class="lightbox" href="{{asset($gallery->images)}}">
-                            <img src="{{asset($gallery->images)}}" alt="Park">
-                        </a>
-                    </div>
-                @endforeach
-            @endforeach
-        </div>
-
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>
-
-        <script>
-            baguetteBox.run('.tz-gallery');
-        </script>
     </div>
 
-        </div>
+
+</div>
 
 
 <footer id="footer" class="footer">
@@ -194,7 +140,9 @@
                 </a>
                 <p>We would like minister you and for you to minister to us. We are based in Japan</p>
                 <div class="social-links d-flex mt-4">
-                
+                    {{--                    <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>--}}
+                    {{--                    <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>--}}
+                    {{--                    <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>--}}
                     <a href="https://www.youtube.com/@pastorkidustsegayeofficial3813" class="youtube"><i class="bi bi-youtube"></i></a>
                     <a href="https://www.facebook.com/NaiothTheRamah" class="facebook"><i class="bi bi-facebook"></i></a>
                 </div>
@@ -250,7 +198,6 @@
 
 </footer><!-- End Footer -->
 
-
 <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
 {{-- Enable preloader for loading animation
@@ -258,13 +205,11 @@
 <div id="preloader"></div>--}}
 
 <!-- Vendor JS Files -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>
-
-        <script>
-            baguetteBox.run('.tz-gallery');
-        </script>
-
+<script>
+    baguetteBox.run('.tz-gallery');
+</script>
 <script src="{{asset('front_end/assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <script src="{{asset('front_end/assets/vendor/purecounter/purecounter_vanilla.js')}}"></script>
 <script src="{{asset('front_end/assets/vendor/glightbox/js/glightbox.min.js')}}"></script>
@@ -276,12 +221,8 @@
 <script src="{{asset('front_end/assets/js/main.js')}}"></script>
 
 
-
 </body>
-
-
 </html>
-
 
 
 

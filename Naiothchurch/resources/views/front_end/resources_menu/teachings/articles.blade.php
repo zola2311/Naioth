@@ -33,57 +33,35 @@
     <!-- End Hero Section -->
 
     <main id="main">
-
-        <!-- ======= Videos - From About Us Section ======= -->
-        <section id="about" class="about pt-0">
+        <section id="service" class="services pt-0">
             <div class="container" data-aos="fade-up">
 
                 <div class="section-header">
-                    <h2> Studio Recordings </h2>
+                    <span>Church Ministry</span>
+                    <h2>Church Ministry</h2>
+
                 </div>
 
                 <div class="row gy-4">
-                    <div class="col-lg-4 position-relative align-self-start order-lg-last order-first">
-                        <img src="{{asset('front_end/assets/img/Amelkihalehu.jpg')}}" class="img-fluid" alt="">
-                        <a href="https://www.youtube.com/watch?v=sFuwFhGcmGM" class="glightbox play-btn"></a>
-                    </div>
 
-                    <div class="col-lg-4 position-relative align-self-start order-lg-last order-first">
-                        <img src="{{asset('front_end/assets/img/Amelkihalehu.jpg')}}" class="img-fluid" alt="">
-                        <a href="https://www.youtube.com/watch?v=iXw7uKtANIo" class="glightbox play-btn"></a>
-                    </div>
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                        <div class="card">
+                            <div class="card-img">
+                                <img src="{{asset('front_end/assets/img/sermons.jpg')}}" class="img-fluid" alt="">
+                            </div>
+                            <h3><a href="{{route('sermons')}}" class='{{($route=='sermons')?'active':' '}}' class="stretched-link"> Sermons </a></h3>
+                            <p>In our church we regularly learn the word of God for instruction, encouragement and strengtheining our faith.</p>
+                        </div>
+                    </div><!-- End Card Item -->
 
-                    <div class="col-lg-4 position-relative align-self-start order-lg-last order-first">
-                        <img src="{{asset('front_end/assets/img/Amelkihalehu.jpg')}}" class="img-fluid" alt="">
-                        <a href="https://www.youtube.com/watch?v=sFuwFhGcmGM" class="glightbox play-btn"></a>
-                    </div>
+
 
                 </div>
 
-                <div class="container" data-aos="fade-up">
-                    <div class="section-header">
-                        <h2> Other recordings </h2>
-                    </div>
+            </div>
+        </section><!-- End Services Section -->
+        <!-- ======= Videos - From About Us Section ======= -->
 
-                    <div class="row gy-4">
-                        <div class="col-lg-4 position-relative align-self-start order-lg-last order-first">
-                            <img src="{{asset('front_end/assets/img/Amelkihalehu.jpg')}}" class="img-fluid" alt="">
-                            <a href="https://www.youtube.com/watch?v=sFuwFhGcmGM" class="glightbox play-btn"></a>
-                        </div>
-
-                        <div class="col-lg-4 position-relative align-self-start order-lg-last order-first">
-                            <img src="{{asset('front_end/assets/img/Amelkihalehu.jpg')}}" class="img-fluid" alt="">
-                            <a href="https://www.youtube.com/watch?v=iXw7uKtANIo" class="glightbox play-btn"></a>
-                        </div>
-
-                        <div class="col-lg-4 position-relative align-self-start order-lg-last order-first">
-                            <img src="{{asset('front_end/assets/img/Amelkihalehu.jpg')}}" class="img-fluid" alt="">
-                            <a href="https://www.youtube.com/watch?v=sFuwFhGcmGM" class="glightbox play-btn"></a>
-                        </div>
-
-                    </div>
-
-        </section><!-- End About Us Section -->
 
     </main><!-- End #main -->
 
