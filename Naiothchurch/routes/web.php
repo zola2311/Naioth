@@ -63,7 +63,7 @@ Route::controller(FrontController::class)->group(function () {
     Route::get('/resources_menu/teachings/articles', 'articles') -> name('articles');
     Route::get('/resources_menu/teachings/others', 'others') -> name('others');
     Route::get('/resources_menu/teachings/series', 'series') -> name('series');
-    Route::get('/resources_menu/teachings/sermons', 'articles') -> name('sermons');
+    Route::get('/resources_menu/teachings/sermons', 'sermons') -> name('sermons');
     Route::get('/resources_menu/teachings/shorts', 'shorts') -> name('shorts');
 });
 
