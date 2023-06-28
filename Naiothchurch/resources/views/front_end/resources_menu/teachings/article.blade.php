@@ -37,28 +37,12 @@
             <div class="container" data-aos="fade-up">
 
                 <div class="section-header">
-                    <span>Church Ministry</span>
-                    <h2>Church Ministry</h2>
+                    <span>{{ $article->articles_title}} </span>
+                    <h2>{{$article->articles_title}}</h2>
 
                 </div>
 
-
-                <div class="row gy-4">
-                    @foreach($articles as $item)
-                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                        <div class="card">
-                            <div class="card-img">
-                                <img src="{{ asset($item->article_image) }}" class="img-fluid" alt="">
-                            </div>
-                            <h3><a href="{{ route('opened.article',$item->id) }}"  class="stretched-link"> {{$item->articles_title}} </a></h3>
-                            <p>{!! $item->articles_description !!}</p>
-                        </div>
-                    </div><!-- End Card Item -->
-                    @endforeach
-
-
-                </div>
-
+                <p> {{$article->articles_detail}}</p>
 
 
 

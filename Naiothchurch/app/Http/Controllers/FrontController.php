@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Articles;
 use App\Models\Category;
 use App\Models\Member;
 use App\Models\Testimonies;
@@ -54,8 +55,10 @@ class FrontController extends Controller
 
     public function articles()
     {
-        return view('front_end.resources_menu.teachings.articles');
+        $articles = Articles::latest()->get();
+        return view('front_end.resources_menu.teachings.articles',compact('articles'));
     }
+
 
     public function others()
     {
@@ -97,5 +100,9 @@ class FrontController extends Controller
         $category = Category::where('id', $category_id)->get();
 
         return view('front_end.gallery',compact('category'));
+    }
+    public function article($id){
+        $article = Articles::findOrFail($id);
+        return view('front_end.resources_menu.teachings.article',compact('article'));
     }
 }
