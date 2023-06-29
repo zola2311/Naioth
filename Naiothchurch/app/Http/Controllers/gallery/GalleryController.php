@@ -66,8 +66,7 @@ class GalleryController extends Controller
     }
 
 
-        return redirect()->route('all.images')->with($notification);
-    
+
 
 
 

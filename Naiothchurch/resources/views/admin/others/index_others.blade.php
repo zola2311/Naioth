@@ -19,7 +19,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                        <h4 class="mb-sm-0"> All Testimonies</h4>
+                        <h4 class="mb-sm-0"> All Others</h4>
 
 
 
@@ -33,16 +33,16 @@
                     <div class="card">
                         <div class="card-body">
 
-                            <h4 class="card-title">Testimonies All Data </h4>
+                            <h4 class="card-title">Others All Data </h4>
 
 
                             <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                 <thead>
                                 <tr>
                                     <th>Sl</th>
-                                    <th>Testimonies Name</th>
-                                    <th>Testimonies Description</th>
-                                    <th>Testimonies url</th>
+                                    <th>Others Name</th>
+                                    <th>Others Description</th>
+                                    <th>Others url</th>
                                     <th>Action</th>
 
                                 </thead>
@@ -50,17 +50,17 @@
 
                                 <tbody>
                                 @php($i = 1)
-                                @foreach($testimonies as $item)
+                                @foreach($others as $item)
                                     <tr>
                                         <td> {{ $i++}} </td>
-                                        <td> {{ $item->testimonies_name}} </td>
-                                        <td> {{ Str::limit($item->testimonies_description, 50)}} </td>
-{{--                                        <td> {{ $item->testimonies_url}} </td>--}}
+                                        <td> {{ $item->others_name}} </td>
+                                        <td> {{ Str::limit($item->others_description, 50)}} </td>
+                                        <td> {{ $item->others_url}} </td>
 
                                         <td>
-                                            <a href="{{ route('edit.testimony',$item->id) }}" class="btn btn-info sm" title="Edit Data">  <i class="fas fa-edit"></i> </a>
+                                            <a href="{{ route('edit.other',$item->id) }}" class="btn btn-info sm" title="Edit Data">  <i class="fas fa-edit"></i> </a>
 
-                                            <a href="{{ route('delete.testimony',$item->id) }}" class="btn btn-danger sm" title="Delete Data"
+                                            <a href="{{ route('delete.other',$item->id) }}" class="btn btn-danger sm" title="Delete Data"
                                                id="delete">  <i class="fas fa-trash-alt"></i> </a>
 
                                         </td>
@@ -83,3 +83,5 @@
 
 
 @endsection
+
+

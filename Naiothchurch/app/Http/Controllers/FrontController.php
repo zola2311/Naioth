@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Articles;
 use App\Models\Category;
 use App\Models\Events;
 use App\Models\Member;
@@ -58,8 +59,10 @@ class FrontController extends Controller
 
     public function articles()
     {
-        return view('front_end.resources_menu.teachings.articles');
+        $articles = Articles::latest()->get();
+        return view('front_end.resources_menu.teachings.articles',compact('articles'));
     }
+
 
     public function others()
     {
@@ -101,9 +104,14 @@ class FrontController extends Controller
     {
         return view('front_end.contact');
     }
+
     public function category($category_id){
 
         $category = Category::where('id', $category_id)->get();
         return view('front_end.gallery',compact('category'));
+    }
+    public function article($id){
+        $article = Articles::findOrFail($id);
+        return view('front_end.resources_menu.teachings.article',compact('article'));
     }
 }

@@ -11,6 +11,7 @@ use App\Http\Controllers\gallery\GalleryController;
 
 
 use App\Http\Controllers\MembersController;
+use App\Http\Controllers\OtherController;
 use App\Http\Controllers\PrayersController;
 use App\Http\Controllers\SeriesController;
 use App\Http\Controllers\SermonController;
@@ -32,6 +33,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+Route::get('/test', function () {
+    return view('front_end.test');
 });
 
 Route::get('/dashboard', function () {
@@ -61,6 +65,7 @@ Route::controller(FrontController::class)->group(function () {
 
     Route::get('/resources_menu/worships', 'worships') -> name('worships');
     Route::get('/resources_menu/teachings/articles', 'articles') -> name('articles');
+    Route::get('/resources_menu/teachings/articles/{id}', 'article') -> name('opened.article');
     Route::get('/resources_menu/teachings/others', 'others') -> name('others');
     Route::get('/resources_menu/teachings/series', 'series') -> name('series');
     Route::get('/resources_menu/teachings/sermons', 'articles') -> name('sermons');
@@ -171,6 +176,7 @@ Route::get('/articles/all', [ArticleController::class, 'AllArticles'])->name('al
 Route::get('/edit/articles/{id}', [ArticleController::class, 'EditArticle'])->name('edit.article');
 Route::post('/update/articles', [ArticleController::class, 'UpdateArticle'])->name('update.article');
 Route::get('/delete/articles/{id}', [ArticleController::class, 'DeleteArticle'])->name('delete.article');
+
 // shorts
 Route::get('/shorts/create', [ShortController::class, 'create'])->name('create.short');
 Route::post('/shorts', [ShortController::class, 'StoreShort'])->name('short.store');
@@ -222,6 +228,14 @@ Route::get('/edit/worships/{id}', [WorshipController::class, 'EditWorship'])->na
 Route::post('/update/worships', [WorshipController::class, 'UpdateWorship'])->name('update.worship');
 Route::get('/delete/worships/{id}', [WorshipController::class, 'DeleteWorship'])->name('delete.worship');
 
+//
+Route::get('/others/create', [OtherController::class, 'create'])->name('create.other');
+Route::post('/others', [OtherController::class, 'store'])->name('other.store');
+Route::get('/others', [OtherController::class, 'index'])->name('all.others');
+Route::get('/edit/others/{id}', [OtherController::class, 'EditOther'])->name('edit.other');
+Route::post('/update/others', [OtherController::class, 'UpdateOther'])->name('update.other');
+Route::get('/delete/others/{id}', [OtherController::class, 'DeleteOther'])->name('delete.other');
+
 Route::controller(ContactController::class)->group(function () {
     Route::post('/store/message', 'StoreMessage')->name('store.message');
     Route::get('/contact/message', 'ContactMessage')->name('contact.message');
@@ -229,6 +243,8 @@ Route::controller(ContactController::class)->group(function () {
 
 
 });
+
+
 
 //Route::post('/galleries', [GalleryController::class, 'store'])->name('galleries.store');
 //Route::get('/allimages', [GalleryController::class, 'index'])->name('categories.index');

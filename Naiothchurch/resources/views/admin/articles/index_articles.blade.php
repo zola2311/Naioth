@@ -30,9 +30,10 @@
                                 <thead>
                                 <tr>
                                     <th>Sl</th>
-                                    <th>Articles Name</th>
+                                    <th>Articles Title</th>
+                                    <th>Articles Image</th>
                                     <th>Articles Description</th>
-                                    <th>Articles Url</th>
+                                    <th>Articles Details</th>
                                     <th>Action</th>
 
                                 </thead>
@@ -43,9 +44,10 @@
                                 @foreach($articles as $item)
                                     <tr>
                                         <td> {{ $i++}} </td>
-                                        <td> {{ $item->articles_name}} </td>
+                                        <td> {{ $item->articles_title}} </td>
+                                        <td> <img src="{{ asset($item->article_image) }}" style="width: 60px; height: 50px;">  </td>
                                         <td> {{ Str::limit($item->articles_description, 50)}} </td>
-                                        <td> {{ $item->articles_url}} </td>
+                                        <td> {{ Str::limit($item->articles_detail,50)}} </td>
 
                                         <td>
                                             <a href="{{ route('edit.article',$item->id) }}" class="btn btn-info sm" title="Edit Data">  <i class="fas fa-edit"></i> </a>
