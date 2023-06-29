@@ -4,7 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\Articles;
 use App\Models\Category;
+use App\Models\Events;
 use App\Models\Member;
+use App\Models\Prayers;
+use App\Models\Series;
+use App\Models\Sermons;
+use App\Models\Shorts;
 use App\Models\Testimonies;
 use App\Models\Worships;
 use Illuminate\Http\Request;
@@ -24,10 +29,9 @@ class FrontController extends Controller
     public function gallery()
     {
         $categories = Category::with('galleries')->get();
-
-//        return view('admin.categories.index', compact('categories'));
         return view('front_end.gallery_categories', compact('categories'));
-//        return view('front_end.gallery_categories');
+        //        return view('admin.categories.index', compact('categories'));
+        //        return view('front_end.gallery_categories');
     }
 
     public function believe()
@@ -37,7 +41,6 @@ class FrontController extends Controller
 
     public function members()
     {
-
         $members = Member::latest()->get();
         return view('front_end.about_menu.members',compact('members'));
     }
@@ -47,6 +50,7 @@ class FrontController extends Controller
         $testimonies = Testimonies::latest()->get();
         return view('front_end.resources_menu.testimonies',compact('testimonies'));
     }
+
     public function worships()
     {
         $worships = Worships::latest()->get();
@@ -62,32 +66,38 @@ class FrontController extends Controller
 
     public function others()
     {
-        return view('front_end.resources_menu.teachings.others');
+        $others = Others::latest()->get();
+        return view('front_end.resources_menu.teachings.others', compact('worships'));
     }
 
     public function series()
     {
-        return view('front_end.resources_menu.teachings.series');
+        $series = Series::latest()->get();
+        return view('front_end.resources_menu.teachings.series', compact('series'));
     }
 
     public function sermons()
     {
-        return view('front_end.resources_menu.teachings.sermons');
+        $sermons = Sermons::latest()->get();
+        return view('front_end.resources_menu.teachings.sermons', compact('sermons'));
     }
 
     public function shorts()
     {
-        return view('front_end.resources_menu.teachings.short');
+        $shorts = Shorts::latest()->get();
+        return view('front_end.resources_menu.teachings.shorts', compact('shorts'));
     }
 
     public function events()
     {
-        return view('front_end.resources_menu.events');
+        $events = Events::latest()->get();
+        return view('front_end.resources_menu.events', compact('events'));
     }
 
     public function prayers()
     {
-        return view('front_end.resources_menu.prayers');
+        $prayers = Prayers::latest()->get();
+        return view('front_end.resources_menu.prayers', compact('prayers'));
     }
 
     public function contact()
@@ -98,7 +108,6 @@ class FrontController extends Controller
     public function category($category_id){
 
         $category = Category::where('id', $category_id)->get();
-
         return view('front_end.gallery',compact('category'));
     }
     public function article($id){

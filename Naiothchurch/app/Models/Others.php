@@ -9,4 +9,5 @@ class Others extends Model
 {
     use HasFactory;
     protected $guarded=[];
+
 }

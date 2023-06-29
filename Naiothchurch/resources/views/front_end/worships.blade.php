@@ -37,7 +37,7 @@
         <section id="about" class="about pt-0">
             <div class="container" data-aos="fade-up">
                 <div class="section-header">
-                    <h2> Recordings </h2>
+                    <h2> Worship and Songs </h2>
                 </div>
 
                 <div class="row gy-4">
