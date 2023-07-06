@@ -68,7 +68,7 @@ Route::controller(FrontController::class)->group(function () {
     Route::get('/resources_menu/teachings/articles/{id}', 'article') -> name('opened.article');
     Route::get('/resources_menu/teachings/others', 'others') -> name('others');
     Route::get('/resources_menu/teachings/series', 'series') -> name('series');
-    Route::get('/resources_menu/teachings/sermons', 'articles') -> name('sermons');
+    Route::get('/resources_menu/teachings/sermons', 'sermons') -> name('sermons');
     Route::get('/resources_menu/teachings/shorts', 'shorts') -> name('shorts');
 });
 
@@ -240,11 +240,7 @@ Route::controller(ContactController::class)->group(function () {
     Route::post('/store/message', 'StoreMessage')->name('store.message');
     Route::get('/contact/message', 'ContactMessage')->name('contact.message');
     Route::get('/delete/message/{id}', 'DeleteMessage')->name('delete.message');
-
-
 });
-
-
 
 //Route::post('/galleries', [GalleryController::class, 'store'])->name('galleries.store');
 //Route::get('/allimages', [GalleryController::class, 'index'])->name('categories.index');

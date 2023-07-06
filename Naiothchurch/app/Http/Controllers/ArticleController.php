@@ -10,15 +10,12 @@ use Intervention\Image\Facades\Image;
 
 class ArticleController extends Controller
 {
-
     public function create()
     {
         return view('admin.articles.create_articles');
     }
 
-
     public function StoreArticle(Request $request){
-
 //        $request->validate([
 //            'articles_description'=>'required|alpha',
 //            'article_image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
@@ -50,24 +47,20 @@ class ArticleController extends Controller
         );
 
         return redirect()->route('all.articles')->with($notification);
-
-
     } // End Method
-
-
 
     public function AllArticles()
     {
         $articles = Articles::all();
-
         return view('admin.articles.index_articles', compact('articles'));
+    }// End Method
 
-    }
     public function EditArticle($id){
 
         $article = Articles::findOrFail($id);
         return view('admin.articles.edit_articles',compact('article'));
     }// End Method
+
     public function UpdateArticle(Request $request)
     {
 //        $request->validate([
@@ -103,7 +96,9 @@ class ArticleController extends Controller
             );
             return redirect()->route('all.articles')->with($notification);
 //
-        } else {
+        }
+
+        else {
 
             Articles::findOrFail($article_id)->update([
                 'articles_detail' => $request->articles_name,
@@ -123,16 +118,12 @@ class ArticleController extends Controller
     }
 
     public function DeleteArticle($id){
-
-
         Articles::findOrFail($id)->delete();
-
         $notification = array(
             'message' => 'Article  Deleted Successfully',
             'alert-type' => 'success'
         );
-
         return redirect()->back()->with($notification);
-
     }// End Method
+
 }
