@@ -13,6 +13,7 @@
     @endphp
 
         <!-- ======= Hero Section ======= -->
+
     <section id="hero" class="hero d-flex align-items-center">
         <div class="container">
             <div class="row gy-4 d-flex justify-content-between">
@@ -42,16 +43,15 @@
 
                 </div>
 
-                <p> {{$article->articles_detail}}</p>
+                <div class="col-lg-12 position-relative align-self-start order-lg-last order-first">
+                    <img src="{{ asset($article -> article_image) }}" class="img-fluid" alt="">
+                    <a href="https://www.youtube.com/watch?v=sFuwFhGcmGM" class="glightbox play-btn"></a>
+                </div>
 
-
-
-
+                <p> {!! $article->articles_detail !!} </p>
 
             </div>
         </section><!-- End Services Section -->
-        <!-- ======= Videos - From About Us Section ======= -->
-
 
     </main><!-- End #main -->
 

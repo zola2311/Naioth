@@ -17,7 +17,7 @@
             <div class="container">
                 <div class="row gy-4 d-flex justify-content-between">
                     <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
-                        <h2 data-aos="fade-up">Ethiopian Evangelical Church in Japan</h2>
+                        <h2 data-aos="fade-up"> International Evangelical Church </h2>
                         <h6 data-aos="fade-up" data-aos-delay="100"> Naioth that is translated as the dwelling place of prophets (1st Samuel 19:18-24), our congregation is an assembly of Christians filled by the Holy Spirit in this day and age. </h6>
 
                         <div class="row gy-4" data-aos="fade-up" data-aos-delay="400">
@@ -30,22 +30,8 @@
 
                             <div class="col-lg-3 col-6">
                                 <div class="stats-item text-center w-100 h-100">
-                                    <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
-                                    <p> Demo </p>
-                                </div>
-                            </div><!-- End Stats Item -->
-
-                            <div class="col-lg-3 col-6">
-                                <div class="stats-item text-center w-100 h-100">
-                                    <span data-purecounter-start="0" data-purecounter-end="1453" data-purecounter-duration="1" class="purecounter"></span>
-                                    <p>Support</p>
-                                </div>
-                            </div><!-- End Stats Item -->
-
-                            <div class="col-lg-3 col-6">
-                                <div class="stats-item text-center w-100 h-100">
-                                    <span data-purecounter-start="0" data-purecounter-end="32" data-purecounter-duration="1" class="purecounter"></span>
-                                    <p>Workers</p>
+                                    <span data-purecounter-start="0" data-purecounter-end="50" data-purecounter-duration="1" class="purecounter"></span>
+                                    <p> Members </p>
                                 </div>
                             </div><!-- End Stats Item -->
 

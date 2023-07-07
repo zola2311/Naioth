@@ -23,11 +23,8 @@ class TestimonyController extends Controller
             'testimonies_name'=>'required',
             'testimonies_url'=>'required|url',
             'testimonies_description'=>'required'
-        ],[
-            'testimonies_url.required' => 'The  url field is required.',
-            'testimonies_url.url' => 'Invalid URL format.',
         ]);
-
+//        $request->validate(['blog_category'=>'required'],['blog_category.required'=>'blog category name ግዴታ ነው',]);
 
         Testimonies::insert([
             'testimonies_name' => $request->testimonies_name,
@@ -79,19 +76,12 @@ class TestimonyController extends Controller
 //
     }
 
-
     public function DeleteTestimony($id){
-
-
         Testimonies::findOrFail($id)->delete();
-
         $notification = array(
             'message' => 'Testimony  Deleted Successfully',
             'alert-type' => 'success'
         );
-
         return redirect()->back()->with($notification);
-
     }// End Method
-
 }
