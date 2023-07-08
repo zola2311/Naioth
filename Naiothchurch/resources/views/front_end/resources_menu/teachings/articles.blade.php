@@ -45,15 +45,15 @@
 
                 <div class="row gy-4">
                     @foreach($articles as $item)
-                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                        <div class="card">
-                            <div class="card-img">
-                                <img src="{{ asset($item->article_image) }}" class="img-fluid" alt="">
+                        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                            <div class="card">
+                                <div class="card-img">
+                                    <img src="{{ asset($item->article_image) }}" class="img-fluid" alt="">
+                                </div>
+                                <h3><a href="{{ route('opened.article',$item->id) }}"  class="stretched-link"> {{$item->articles_title}} </a></h3>
+                                <p>{!! $item->articles_description !!}</p>
                             </div>
-                            <h3><a href="{{ route('opened.article',$item->id) }}"  class="stretched-link"> {{$item->articles_title}} </a></h3>
-                            <p>{!! $item->articles_description !!}</p>
-                        </div>
-                    </div><!-- End Card Item -->
+                        </div><!-- End Card Item -->
                     @endforeach
 
 

@@ -12,6 +12,7 @@ use App\Models\Sermons;
 use App\Models\Shorts;
 use App\Models\Testimonies;
 use App\Models\Worships;
+use App\Models\Others;
 use Illuminate\Http\Request;
 
 class FrontController extends Controller
@@ -67,7 +68,7 @@ class FrontController extends Controller
     public function others()
     {
         $others = Others::latest()->get();
-        return view('front_end.resources_menu.teachings.others', compact('worships'));
+        return view('front_end.resources_menu.teachings.others', compact('others'));
     }
 
     public function series()

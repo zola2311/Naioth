@@ -13,6 +13,7 @@
     @endphp
 
         <!-- ======= Hero Section ======= -->
+
     <section id="hero" class="hero d-flex align-items-center">
         <div class="container">
             <div class="row gy-4 d-flex justify-content-between">
@@ -33,30 +34,24 @@
     <!-- End Hero Section -->
 
     <main id="main">
-
-        <!-- ======= Videos - From About Us Section ======= -->
-        <section id="about" class="about pt-0">
+        <section id="service" class="services pt-0">
             <div class="container" data-aos="fade-up">
 
                 <div class="section-header">
-                    <h2> Collections </h2>
+                    <span>{{ $event -> events_title}} </span>
+                    <h2>{{ $event -> events_title}}</h2>
+
                 </div>
 
-                @foreach($others as $item)
-                    <div class="col-lg-4 col-md-6 d-flex">
-                        <div class="member">
-                            <a href="{!! $item->others_url !!}"><img src="{{asset('backend/assets/images/wp7057753-youtube-thumbnails-wallpapers.jpg')}}" alt="" class="img-fluid"></a>
-                            {{--                            <img src="{{asset('front_end/assets/img/hero-img.png')}}" class="img-fluid" alt="">--}}
-                            <div class="member-content">
-                                <h4>{{$item->others_name}}</h4>
-                                <p>
-                                    {{$item->others_description }}
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-               @endforeach
-        </section><!-- End About Us Section -->
+                <div class="col-lg-12 position-relative align-self-start order-lg-last order-first">
+                    <img src="{{ asset($event -> event_image) }}" class="img-fluid" alt="">
+                    <a href="https://www.youtube.com/watch?v=sFuwFhGcmGM" class="glightbox play-btn"></a>
+                </div>
+
+                <p> {!! $article->articles_detail !!} </p>
+
+            </div>
+        </section><!-- End Services Section -->
 
     </main><!-- End #main -->
 

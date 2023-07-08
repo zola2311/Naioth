@@ -8,13 +8,10 @@ use Illuminate\Http\Request;
 
 class OtherController extends Controller
 {
-    //
-    //
     public function create()
     {
         return view('admin.others.create_others');
     }
-
 
     public function store(Request $request)
     {
@@ -24,7 +21,6 @@ class OtherController extends Controller
             'others_description'=>'required'
 
         ]);
-//        $request->validate(['blog_category'=>'required'],['blog_category.required'=>'blog category name ግዴታ ነው',]);
 
         Others::insert([
             'others_name' => $request->others_name,

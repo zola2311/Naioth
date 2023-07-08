@@ -49,11 +49,15 @@
                 {{--                        </div>--}}
 
                 <div class="col-lg-6 position-relative align-self-start order-lg-last order-first">
+                    <br>
+                    <br>
+                    <br>
                     <img src="{{asset('front_end/assets/img/Amelkihalehu.jpg')}}" class="img-fluid" alt="">
                     <a href="https://www.youtube.com/watch?v=sFuwFhGcmGM" class="glightbox play-btn"></a>
                 </div>
 
                 <div class="col-lg-6 content order-last  order-lg-first">
+                    <br>
                     <h3>About Us</h3>
                     <p>
                         We are Ethiopian Christians gathered together in the name of our Lord and Savior Jesus Christ. Here in Japan we commune together to strengthen each other in our faith and serve one another as members of the body of Christ.
