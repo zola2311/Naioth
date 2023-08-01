@@ -24,7 +24,7 @@
                                     <div class="col-sm-10">
                                         <input name="articles_title" class="form-control" type="text"  id="articles_title">
                                         @error('articles_title')
-                                        <span class="text-danger">{{$message}}</span>
+                                            <span class="text-danger">{{$message}}</span>
                                         @enderror
                                     </div>
                                 </div>
@@ -62,10 +62,8 @@
                                     <label for="example-text-input" class="col-sm-2 col-form-label">Article Image </label>
                                     <div class="col-sm-10">
                                         <input name="article_image" class="form-control" type="file"  id="image">
-
-
                                         @error('article_image')
-                                        <span class="text-danger">{{$message}}</span>
+                                            <span class="text-danger">{{$message}}</span>
                                         @enderror
                                     </div>
                                 </div>
@@ -82,15 +80,9 @@
                                 <!-- end row -->
                                 <input type="submit" class="btn btn-info waves-effect waves-light" value="Create Article">
                             </form>
-
-
-
                         </div>
                     </div>
                 </div> <!-- end col -->
-
-
-
             </div>
         </div>
     </div>

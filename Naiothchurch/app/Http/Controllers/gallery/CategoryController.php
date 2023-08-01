@@ -21,12 +21,11 @@ class CategoryController extends Controller
     {
         //$test=dd($request);
         $request->validate([
-            'name' => 'required|alpha',
+            'name' => 'required',
             'category_image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
             'description' => 'required',
         ],[
             'name.required' => 'The name field is required.',
-            'name.alpha' => 'The name field should only contain alphabetic characters.',
             'description.required' =>'category description required',
             'category_image.required' => 'Please select an image.',
             'category_image.image' => 'The file must be an image.',
@@ -53,37 +52,33 @@ class CategoryController extends Controller
             'alert-type' => 'success'
         );
         return redirect()->route('categories.index')->with($notification);
-
-
     }
 
     public function index()
     {
         $categories = Category::with('galleries')->get();
-
         return view('admin.categories.index', compact('categories'));
-
     }
-    public function EditCategory($id){
 
+    public function EditCategory($id){
         $category = Category::findOrFail($id);
         return view('admin.categories.edit_category',compact('category'));
     }// End Method
 
 
     public function UpdateCategory(Request $request){
-        $request->validate([
-            'name' => 'required|alpha',
-            'category_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'description' => 'required',
-        ],[
-            'name.required' => 'The name field is required.',
-            'name.alpha' => 'The name field should only contain alphabetic characters.',
-            'description.required' =>'Category description required.',
-            'category_image.image' => 'The file must be an image.',
-            'category_image.mimes' => 'Only JPEG, PNG, JPG, and GIF images are allowed.',
-            'category_image.max' => 'The maximum file size allowed is 2MB.',
-        ]);
+            $request->validate([
+                'name' => 'required',
+                'category_image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+                'description' => 'required',
+            ],[
+                'name.required' => 'The name field is required.',
+                'description.required' =>'category description required',
+                'category_image.required' => 'Please select an image.',
+                'category_image.image' => 'The file must be an image.',
+                'category_image.mimes' => 'Only JPEG, PNG, JPG, and GIF images are allowed.',
+                'category_image.max' => 'The maximum file size allowed is 2MB.',
+            ]);
 
         $category_id = $request->id;
 

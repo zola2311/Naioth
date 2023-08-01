@@ -17,7 +17,6 @@ class TestimonyController extends Controller
         return view('admin.testimonies.create_testimonies');
     }
 
-
     public function StoreTestimony(Request $request){
         $request->validate([
             'testimonies_name'=>'required',
@@ -30,7 +29,6 @@ class TestimonyController extends Controller
             'testimonies_name' => $request->testimonies_name,
             'testimonies_url' => $request->testimonies_url,
             'testimonies_description' => $request->testimonies_description,
-
         ]);
 
         $notification = array(
@@ -52,13 +50,19 @@ class TestimonyController extends Controller
         return view('admin.testimonies.index_testimonies', compact('testimonies'));
 
     }
-    public function EditTestimony($id){
-
+    public function EditTestimony($id)
+    {
         $testimony = Testimonies::findOrFail($id);
         return view('admin.testimonies.edit_testimonies',compact('testimony'));
     }// End Method
+
     public function UpdateTestimony(Request $request)
     {
+        $request->validate([
+            'testimonies_name'=>'required',
+            'testimonies_url'=>'required|url',
+            'testimonies_description'=>'required'
+        ]);
 
         $testimony_id = $request->id;
 

@@ -40,7 +40,6 @@
                 <div class="section-header">
                     <span>{{ $event -> events_title}} </span>
                     <h2>{{ $event -> events_title}}</h2>
-
                 </div>
 
                 <div class="col-lg-12 position-relative align-self-start order-lg-last order-first">

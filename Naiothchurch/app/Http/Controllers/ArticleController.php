@@ -16,16 +16,15 @@ class ArticleController extends Controller
     }
 
     public function StoreArticle(Request $request){
-//        $request->validate([
-//            'articles_description'=>'required|alpha',
-//            'article_image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-//            'articles_name'=>'required',
-//            'articles_title'=>'required'
-//
-//        ],
-//            ['article_image.required' => 'Please select an image.',
-//            'article_image.image' => 'The file must be an image.',
-//            'article_image.mimes' => 'Only JPEG, PNG, JPG, and GIF images are allowed.']);
+        $request->validate([
+            'articles_description'=>'required',
+            'article_image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'articles_detail'=>'required',
+            'articles_title'=>'required'
+        ],
+            ['article_image.required' => 'Please select an image.',
+            'article_image.image' => 'The file must be an image.',
+            'article_image.mimes' => 'Only JPEG, PNG, JPG, and GIF images are allowed.']);
 
         $article_image = $request->file('article_image');
         $name_gen = hexdec(uniqid()).'.'.$article_image->getClientOriginalExtension();  // 3434343443.jpg
