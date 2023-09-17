@@ -61,6 +61,7 @@ Route::controller(FrontController::class)->group(function () {
     Route::get('/contact', 'contact') -> name('contact');
     Route::get('/resources_menu/prayers', 'prayers') -> name('prayers');
     Route::get('/resources_menu/events', 'events') -> name('events');
+    Route::get('/resources_menu/events/{id}', 'event') -> name('opened.event');
     Route::get('/resources_menu/testimonies', 'testimonies') -> name('testimonies');
 
     Route::get('/resources_menu/worships', 'worships') -> name('worships');
@@ -109,6 +110,102 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/update/password', 'UpdatePassword')->name('update.password');
         //   Route::get('/contact', 'ContactMethod')->name('contact.page');
     });
+    Route::get('/categories/create', [CategoryController::class, 'create'])->name('gallery.categories.create');
+    Route::post('/categories', [CategoryController::class, 'store'])->name('categories.store');
+    Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
+    Route::get('/edit/categories/{id}', [CategoryController::class, 'EditCategory'])->name('edit.category');
+    Route::post('/update/categories', [CategoryController::class, 'UpdateCategory'])->name('update.category');
+    Route::get('/delete/categories/{id}', [CategoryController::class, 'DeleteCategory'])->name('delete.category');
+
+
+    Route::get('/galleries/create', [GalleryController::class, 'create'])->name('images.upload');
+    Route::post('/galleries', [GalleryController::class, 'StoreMultiImage'])->name('images.store');
+    Route::get('/galleries/all', [GalleryController::class, 'AllImages'])->name('all.images');
+    Route::Post('/update/images', [GalleryController::class, 'UpdateImage'])->name('update.image');
+    Route::get('/edit/image/{id}', [GalleryController::class, 'EditImage'])->name('edit.image');
+    Route::get('/delete/image/{id}', [GalleryController::class, 'DeleteImage'])->name('delete.image');
+    Route::post('/delete-images', [GalleryController::class, 'deletemultipleimages'])->name('delete.images');
+
+//testimonies
+    Route::get('/testimonies/create', [TestimonyController::class, 'create'])->name('create.testimony');
+    Route::post('/testimonies', [TestimonyController::class, 'StoreTestimony'])->name('testimony.store');
+    Route::get('/testimonies/all', [TestimonyController::class, 'AllTestimonies'])->name('all.testimonies');
+    Route::get('/edit/testimonies/{id}', [TestimonyController::class, 'EditTestimony'])->name('edit.testimony');
+    Route::post('/update/testimonies', [TestimonyController::class, 'UpdateTestimony'])->name('update.testimony');
+    Route::get('/delete/testimonies/{id}', [TestimonyController::class, 'DeleteTestimony'])->name('delete.testimony');
+
+//articles
+    Route::get('/articles/create', [ArticleController::class, 'create'])->name('create.article');
+    Route::post('/articles', [ArticleController::class, 'StoreArticle'])->name('article.store');
+    Route::get('/articles/all', [ArticleController::class, 'AllArticles'])->name('all.articles');
+    Route::get('/edit/articles/{id}', [ArticleController::class, 'EditArticle'])->name('edit.article');
+    Route::post('/update/articles', [ArticleController::class, 'UpdateArticle'])->name('update.article');
+    Route::get('/delete/articles/{id}', [ArticleController::class, 'DeleteArticle'])->name('delete.article');
+
+// shorts
+    Route::get('/shorts/create', [ShortController::class, 'create'])->name('create.short');
+    Route::post('/shorts', [ShortController::class, 'StoreShort'])->name('short.store');
+    Route::get('/shorts/all', [ShortController::class, 'AllShorts'])->name('all.shorts');
+    Route::get('/edit/shorts/{id}', [ShortController::class, 'EditShort'])->name('edit.short');
+    Route::post('/update/shorts', [ShortController::class, 'UpdateShort'])->name('update.short');
+    Route::get('/delete/shorts/{id}', [ShortController::class, 'DeleteShort'])->name('delete.short');
+
+//sermons
+    Route::get('/sermons/create', [SermonController::class, 'create'])->name('create.sermon');
+    Route::post('/sermons', [SermonController::class, 'StoreSermon'])->name('sermon.store');
+    Route::get('/sermons/all', [SermonController::class, 'AllSermons'])->name('all.sermons');
+    Route::get('/edit/sermons/{id}', [SermonController::class, 'EditSermon'])->name('edit.sermon');
+    Route::post('/update/sermons', [SermonController::class, 'UpdateSermon'])->name('update.sermon');
+    Route::get('/delete/sermons/{id}', [SermonController::class, 'DeleteSermon'])->name('delete.sermon');
+//series
+    Route::get('/series/create', [SeriesController::class, 'create'])->name('create.series');
+    Route::post('/series', [SeriesController::class, 'StoreSerie'])->name('series.store');
+    Route::get('/series/all', [SeriesController::class, 'AllSeries'])->name('all.series');
+    Route::get('/edit/series/{id}', [SeriesController::class, 'EditSerie'])->name('edit.series');
+    Route::post('/update/series', [SeriesController::class, 'UpdateSerie'])->name('update.series');
+    Route::get('/delete/series/{id}', [SeriesController::class, 'DeleteSerie'])->name('delete.series');
+//prayer
+    Route::get('/prayers/create', [PrayersController::class, 'create'])->name('create.prayer');
+    Route::post('/prayers', [PrayersController::class, 'StorePrayer'])->name('prayer.store');
+    Route::get('/prayers/all', [PrayersController::class, 'AllPrayers'])->name('all.prayers');
+    Route::get('/edit/prayers/{id}', [PrayersController::class, 'EditPrayer'])->name('edit.prayer');
+    Route::post('/update/prayers', [PrayersController::class, 'UpdatePrayer'])->name('update.prayer');
+    Route::get('/delete/prayers/{id}', [PrayersController::class, 'DeletePrayer'])->name('delete.prayer');
+//events
+    Route::get('/events/create', [EventsController::class, 'create'])->name('create.event');
+    Route::post('/events', [EventsController::class, 'StoreEvent'])->name('event.store');
+    Route::get('/events/all', [EventsController::class, 'AllEvents'])->name('all.events');
+    Route::get('/edit/events/{id}', [EventsController::class, 'EditEvent'])->name('edit.event');
+    Route::post('/update/events', [EventsController::class, 'UpdateEvent'])->name('update.event');
+    Route::get('/delete/events/{id}', [EventsController::class, 'DeleteEvent'])->name('delete.event');
+//members
+    Route::get('/members/create', [MembersController::class, 'create'])->name('create.member');
+    Route::post('/members', [MembersController::class, 'store'])->name('members.store');
+    Route::get('/members', [MembersController::class, 'index'])->name('all.members');
+    Route::get('/edit/members/{id}', [MembersController::class, 'EditMember'])->name('edit.member');
+    Route::post('/update/members', [MembersController::class, 'UpdateMember'])->name('update.member');
+    Route::get('/delete/members/{id}', [MembersController::class, 'DeleteMember'])->name('delete.member');
+//
+    Route::get('/worships/create', [WorshipController::class, 'create'])->name('create.worship');
+    Route::post('/worships', [WorshipController::class, 'store'])->name('worship.store');
+    Route::get('/worships', [WorshipController::class, 'index'])->name('all.worships');
+    Route::get('/edit/worships/{id}', [WorshipController::class, 'EditWorship'])->name('edit.worship');
+    Route::post('/update/worships', [WorshipController::class, 'UpdateWorship'])->name('update.worship');
+    Route::get('/delete/worships/{id}', [WorshipController::class, 'DeleteWorship'])->name('delete.worship');
+
+//
+    Route::get('/others/create', [OtherController::class, 'create'])->name('create.other');
+    Route::post('/others', [OtherController::class, 'store'])->name('other.store');
+    Route::get('/others', [OtherController::class, 'index'])->name('all.others');
+    Route::get('/edit/others/{id}', [OtherController::class, 'EditOther'])->name('edit.other');
+    Route::post('/update/others', [OtherController::class, 'UpdateOther'])->name('update.other');
+    Route::get('/delete/others/{id}', [OtherController::class, 'DeleteOther'])->name('delete.other');
+
+    Route::controller(ContactController::class)->group(function () {
+        Route::post('/store/message', 'StoreMessage')->name('store.message');
+        Route::get('/contact/message', 'ContactMessage')->name('contact.message');
+        Route::get('/delete/message/{id}', 'DeleteMessage')->name('delete.message');
+    });
 });
 //home slide all route
 Route::controller(GalleryController::class)->group(function () {
@@ -145,102 +242,7 @@ Route::controller(GalleryController::class)->group(function () {
 //    Route::get('/delete/multi/image/{id}', 'DeleteMultiImage')->name('delete.multi.image');
 //});
 
-Route::get('/categories/create', [CategoryController::class, 'create'])->name('gallery.categories.create');
-Route::post('/categories', [CategoryController::class, 'store'])->name('categories.store');
-Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
-Route::get('/edit/categories/{id}', [CategoryController::class, 'EditCategory'])->name('edit.category');
-Route::post('/update/categories', [CategoryController::class, 'UpdateCategory'])->name('update.category');
-Route::get('/delete/categories/{id}', [CategoryController::class, 'DeleteCategory'])->name('delete.category');
 
-
-Route::get('/galleries/create', [GalleryController::class, 'create'])->name('images.upload');
-Route::post('/galleries', [GalleryController::class, 'StoreMultiImage'])->name('images.store');
-Route::get('/galleries/all', [GalleryController::class, 'AllImages'])->name('all.images');
-Route::Post('/update/images', [GalleryController::class, 'UpdateImage'])->name('update.image');
-Route::get('/edit/image/{id}', [GalleryController::class, 'EditImage'])->name('edit.image');
-Route::get('/delete/image/{id}', [GalleryController::class, 'DeleteImage'])->name('delete.image');
-Route::post('/delete-images', [GalleryController::class, 'deletemultipleimages'])->name('delete.images');
-
-//testimonies
-Route::get('/testimonies/create', [TestimonyController::class, 'create'])->name('create.testimony');
-Route::post('/testimonies', [TestimonyController::class, 'StoreTestimony'])->name('testimony.store');
-Route::get('/testimonies/all', [TestimonyController::class, 'AllTestimonies'])->name('all.testimonies');
-Route::get('/edit/testimonies/{id}', [TestimonyController::class, 'EditTestimony'])->name('edit.testimony');
-Route::post('/update/testimonies', [TestimonyController::class, 'UpdateTestimony'])->name('update.testimony');
-Route::get('/delete/testimonies/{id}', [TestimonyController::class, 'DeleteTestimony'])->name('delete.testimony');
-
-//articles
-Route::get('/articles/create', [ArticleController::class, 'create'])->name('create.article');
-Route::post('/articles', [ArticleController::class, 'StoreArticle'])->name('article.store');
-Route::get('/articles/all', [ArticleController::class, 'AllArticles'])->name('all.articles');
-Route::get('/edit/articles/{id}', [ArticleController::class, 'EditArticle'])->name('edit.article');
-Route::post('/update/articles', [ArticleController::class, 'UpdateArticle'])->name('update.article');
-Route::get('/delete/articles/{id}', [ArticleController::class, 'DeleteArticle'])->name('delete.article');
-
-// shorts
-Route::get('/shorts/create', [ShortController::class, 'create'])->name('create.short');
-Route::post('/shorts', [ShortController::class, 'StoreShort'])->name('short.store');
-Route::get('/shorts/all', [ShortController::class, 'AllShorts'])->name('all.shorts');
-Route::get('/edit/shorts/{id}', [ShortController::class, 'EditShort'])->name('edit.short');
-Route::post('/update/shorts', [ShortController::class, 'UpdateShort'])->name('update.short');
-Route::get('/delete/shorts/{id}', [ShortController::class, 'DeleteShort'])->name('delete.short');
-
-//sermons
-Route::get('/sermons/create', [SermonController::class, 'create'])->name('create.sermon');
-Route::post('/sermons', [SermonController::class, 'StoreSermon'])->name('sermon.store');
-Route::get('/sermons/all', [SermonController::class, 'AllSermons'])->name('all.sermons');
-Route::get('/edit/sermons/{id}', [SermonController::class, 'EditSermon'])->name('edit.sermon');
-Route::post('/update/sermons', [SermonController::class, 'UpdateSermon'])->name('update.sermon');
-Route::get('/delete/sermons/{id}', [SermonController::class, 'DeleteSermon'])->name('delete.sermon');
-//series
-Route::get('/series/create', [SeriesController::class, 'create'])->name('create.series');
-Route::post('/series', [SeriesController::class, 'StoreSerie'])->name('series.store');
-Route::get('/series/all', [SeriesController::class, 'AllSeries'])->name('all.series');
-Route::get('/edit/series/{id}', [SeriesController::class, 'EditSerie'])->name('edit.series');
-Route::post('/update/series', [SeriesController::class, 'UpdateSerie'])->name('update.series');
-Route::get('/delete/series/{id}', [SeriesController::class, 'DeleteSerie'])->name('delete.series');
-//prayer
-Route::get('/prayers/create', [PrayersController::class, 'create'])->name('create.prayer');
-Route::post('/prayers', [PrayersController::class, 'StorePrayer'])->name('prayer.store');
-Route::get('/prayers/all', [PrayersController::class, 'AllPrayers'])->name('all.prayers');
-Route::get('/edit/prayers/{id}', [PrayersController::class, 'EditPrayer'])->name('edit.prayer');
-Route::post('/update/prayers', [PrayersController::class, 'UpdatePrayer'])->name('update.prayer');
-Route::get('/delete/prayers/{id}', [PrayersController::class, 'DeletePrayer'])->name('delete.prayer');
-//events
-Route::get('/events/create', [EventsController::class, 'create'])->name('create.event');
-Route::post('/events', [EventsController::class, 'StoreEvent'])->name('event.store');
-Route::get('/events/all', [EventsController::class, 'AllEvents'])->name('all.events');
-Route::get('/edit/events/{id}', [EventsController::class, 'EditEvent'])->name('edit.event');
-Route::post('/update/events', [EventsController::class, 'UpdateEvent'])->name('update.event');
-Route::get('/delete/events/{id}', [EventsController::class, 'DeleteEvent'])->name('delete.event');
-//members
-Route::get('/members/create', [MembersController::class, 'create'])->name('create.member');
-Route::post('/members', [MembersController::class, 'store'])->name('members.store');
-Route::get('/members', [MembersController::class, 'index'])->name('all.members');
-Route::get('/edit/members/{id}', [MembersController::class, 'EditMember'])->name('edit.member');
-Route::post('/update/members', [MembersController::class, 'UpdateMember'])->name('update.member');
-Route::get('/delete/members/{id}', [MembersController::class, 'DeleteMember'])->name('delete.member');
-//
-Route::get('/worships/create', [WorshipController::class, 'create'])->name('create.worship');
-Route::post('/worships', [WorshipController::class, 'store'])->name('worship.store');
-Route::get('/worships', [WorshipController::class, 'index'])->name('all.worships');
-Route::get('/edit/worships/{id}', [WorshipController::class, 'EditWorship'])->name('edit.worship');
-Route::post('/update/worships', [WorshipController::class, 'UpdateWorship'])->name('update.worship');
-Route::get('/delete/worships/{id}', [WorshipController::class, 'DeleteWorship'])->name('delete.worship');
-
-//
-Route::get('/others/create', [OtherController::class, 'create'])->name('create.other');
-Route::post('/others', [OtherController::class, 'store'])->name('other.store');
-Route::get('/others', [OtherController::class, 'index'])->name('all.others');
-Route::get('/edit/others/{id}', [OtherController::class, 'EditOther'])->name('edit.other');
-Route::post('/update/others', [OtherController::class, 'UpdateOther'])->name('update.other');
-Route::get('/delete/others/{id}', [OtherController::class, 'DeleteOther'])->name('delete.other');
-
-Route::controller(ContactController::class)->group(function () {
-    Route::post('/store/message', 'StoreMessage')->name('store.message');
-    Route::get('/contact/message', 'ContactMessage')->name('contact.message');
-    Route::get('/delete/message/{id}', 'DeleteMessage')->name('delete.message');
-});
 
 //Route::post('/galleries', [GalleryController::class, 'store'])->name('galleries.store');
 //Route::get('/allimages', [GalleryController::class, 'index'])->name('categories.index');

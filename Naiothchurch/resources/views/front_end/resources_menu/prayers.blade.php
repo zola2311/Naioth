@@ -39,25 +39,32 @@
             <div class="container" data-aos="fade-up">
 
                 <div class="section-header">
-                    <h2> Prayers </h2>
+                    <h2>Prayers</h2>
                 </div>
 
                 <div class="row gy-4">
                     @foreach($prayers as $item)
                         <div class="col-lg-4 col-md-6 d-flex">
                             <div class="member">
-                                <a href="{!! $item->prayers_url !!}"><img src="{{asset('backend/assets/images/wp7057753-youtube-thumbnails-wallpapers.jpg')}}" alt="" class="img-fluid"></a>
-                                {{--                            <img src="{{asset('front_end/assets/img/hero-img.png')}}" class="img-fluid" alt="">--}}
+                                <iframe
+                                    width="100%"
+                                height="200"
+                                src="//{{$item->prayers_url }}"
+                                frameborder="0"
+                                allowfullscreen
+                                ></iframe>
                                 <div class="member-content">
                                     <h4>{{$item->prayers_name}}</h4>
                                     <p>
-                                        {{$item->prayers_description }}
+                                        {{$item->prayers_description}}
                                     </p>
                                 </div>
                             </div>
                         </div>
+
                     @endforeach
                 </div>
+            </div>
         </section><!-- End Prayers Section -->
 
     </main><!-- End #main -->

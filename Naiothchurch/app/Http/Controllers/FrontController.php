@@ -115,4 +115,8 @@ class FrontController extends Controller
         $article = Articles::findOrFail($id);
         return view('front_end.resources_menu.teachings.article',compact('article'));
     }
+    public function event($id){
+        $event = Events::findOrFail($id);
+        return view('front_end.resources_menu.event',compact('event'));
+    }
 }

@@ -38,8 +38,8 @@
             <div class="container" data-aos="fade-up">
 
                 <div class="section-header">
-                    <span>{{ $event -> events_title}} </span>
-                    <h2>{{ $event -> events_title}}</h2>
+                    <span>{{ $event->events_title}} </span>
+                    <h2>{{$event->events_title}}</h2>
 
                 </div>
 
@@ -48,7 +48,7 @@
                     <a href="https://www.youtube.com/watch?v=sFuwFhGcmGM" class="glightbox play-btn"></a>
                 </div>
 
-                <p> {!! $article->articles_detail !!} </p>
+                <p> {!! $event->events_detail !!} </p>
 
             </div>
         </section><!-- End Services Section -->

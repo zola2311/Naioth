@@ -27,7 +27,7 @@
 
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="ri-mail-send-line"></i>
+                        <i class="ri-artboard-line"></i>
                         <span>Gallery Category Setup</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
@@ -44,7 +44,7 @@
                <li>
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="ri-mail-send-line"></i>
+                        <i class="ri-gallery-fill"></i>
                         <span>Gallery images Setup</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
@@ -60,7 +60,7 @@
 
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="ri-mail-send-line"></i>
+                        <i class="ri-text-wrap"></i>
                         <span>Testimony Setup</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
@@ -76,7 +76,7 @@
 
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="ri-mail-send-line"></i>
+                        <i class="ri-ancient-gate-fill"></i>
                         <span>Article Setup</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
@@ -91,7 +91,7 @@
                 </li>
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="ri-mail-send-line"></i>
+                        <i class="ri-file-shred-fill"></i>
                         <span>Shorts Setup</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
@@ -106,7 +106,7 @@
                 </li>
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="ri-mail-send-line"></i>
+                        <i class="ri-line-line"></i>
                         <span>Sermons Setup</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
@@ -121,7 +121,7 @@
                 </li>
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="ri-mail-send-line"></i>
+                        <i class="ri-service-fill"></i>
                         <span>Series Setup</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
@@ -136,7 +136,7 @@
                 </li>
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="ri-mail-send-line"></i>
+                        <i class="ri-hand-heart-line"></i>
                         <span>Prayers Setup</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
@@ -151,7 +151,7 @@
                 </li>
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="ri-mail-send-line"></i>
+                        <i class="ri-calendar-check-fill"></i>
                         <span>Events Setup</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
@@ -166,7 +166,7 @@
                 </li>
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="ri-mail-send-line"></i>
+                        <i class="ri-user-3-line"></i>
                         <span>Member Setup</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
@@ -181,7 +181,7 @@
                 </li>
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="ri-mail-send-line"></i>
+                        <i class="ri-vip-crown-line"></i>
                         <span>Worships Setup</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">

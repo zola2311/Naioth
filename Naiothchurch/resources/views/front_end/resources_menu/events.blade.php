@@ -5,7 +5,7 @@
 @section('main')
 
     @section('title')
-        Naioth in Ramah | Events
+        Naioth in Ramah | Prayers
     @endsection
 
     @php
@@ -33,31 +33,41 @@
     <!-- End Hero Section -->
 
     <main id="main">
-
-        <!-- ======= Videos - From About Us Section ======= -->
-        <section id="about" class="about pt-0">
+        <section id="service" class="services pt-0">
             <div class="container" data-aos="fade-up">
 
                 <div class="section-header">
-                    <h2> Events </h2>
+                    <span>Church Ministry</span>
+                    <h2>Church Ministry</h2>
+
                 </div>
 
-                @foreach($events as $item)
-                    <div class="col-lg-4 col-md-6 d-flex">
-                        <div class="member">
-                            <a href="{!! $item->events_url !!}"><img src="{{asset('backend/assets/images/wp7057753-youtube-thumbnails-wallpapers.jpg')}}" alt="" class="img-fluid"></a>
-                            {{--                            <img src="{{asset('front_end/assets/img/hero-img.png')}}" class="img-fluid" alt="">--}}
-                            <div class="member-content">
-                                <h4>{{$item->events_name}}</h4>
-                                <p>
-                                    {{$item->events_description }}
-                                </p>
+
+                <div class="row gy-4">
+                    @foreach($events as $item)
+                        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                            <div class="card">
+                                <div class="card-img">
+                                    <img src="{{ asset($item->event_image) }}" class="img-fluid" alt="">
+                                </div>
+                                <h3><a href="{{ route('opened.event',$item->id) }}"  class="stretched-link"> {{$item->events_title}} </a></h3>
+                                <p>{!! $item->events_description !!}</p>
                             </div>
-                        </div>
-                    </div>
-                @endforeach
+                        </div><!-- End Card Item -->
+                    @endforeach
+
+
+                </div>
+
+
+
+
+
+
             </div>
-        </section><!-- End About Us Section -->
+        </section><!-- End Services Section -->
+        <!-- ======= Videos - From About Us Section ======= -->
+
 
     </main><!-- End #main -->
 

@@ -14,21 +14,54 @@ class PrayersController extends Controller
         return view('admin.prayers.create_prayers');
     }
 
+    public function getEmbeddedLink($youtubeLink)
+    {
+        // Regular expression pattern to extract video ID
+        $pattern = '/(?:youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]+)/';
+        preg_match($pattern, $youtubeLink, $matches);
 
-    public function StorePrayer(Request $request){
+        if (count($matches) >= 2) {
+            // Extracted video ID
+            $videoId = $matches[1];
 
-//        $request->validate(['blog_category'=>'required'],['blog_category.required'=>'blog category name ግዴታ ነው',]);
+            // Construct the embedded link without "https:"
+            $embeddedLink = "//www.youtube.com/embed/{$videoId}";
+
+            return $embeddedLink;
+        }
+
+        // Handle invalid YouTube link
+        return null;
+    }
+
+
+
+
+    public function storePrayer(Request $request)
+    {
         $request->validate([
-            'prayers_name'=>'required',
-            'prayers_url'=>'required',
-            'prayers_description'=>'required'
-
+            'prayers_name' => 'required',
+            'prayers_url' => 'required|url', // Ensure the URL is valid
+            'prayers_description' => 'required',
         ]);
+
+        // Extract the embedded YouTube link from the provided URL
+        $embeddedLink = $this->getEmbeddedLink($request->prayers_url);
+
+        if (!$embeddedLink) {
+            // Handle invalid YouTube link
+            $notification = array(
+                'message' => 'Invalid YouTube link. Please provide a valid YouTube URL.',
+                'alert-type' => 'error'
+            );
+
+            return redirect()->back()->withInput()->with($notification);
+        }
+
         Prayers::insert([
             'prayers_name' => $request->prayers_name,
-            'prayers_url' => $request->prayers_url,
+            'prayers_url' => $embeddedLink, // Store the embedded link
             'prayers_description' => $request->prayers_description,
-
         ]);
 
         $notification = array(
@@ -37,9 +70,7 @@ class PrayersController extends Controller
         );
 
         return redirect()->route('all.prayers')->with($notification);
-
-
-    } // End Method
+    }
 
 
 

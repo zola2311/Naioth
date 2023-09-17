@@ -14,40 +14,70 @@
 
                             <h4 class="card-title">Create Event Page </h4>
 
-
                             <form method="post" action="{{ route('event.store') }}" enctype="multipart/form-data">
 
+
                                 @csrf
+
                                 <div class="row mb-3">
-                                    <label for="example-text-input" class="col-sm-2 col-form-label">Event Name</label>
+                                    <label for="example-text-input" class="col-sm-2 col-form-label">Event Title</label>
                                     <div class="col-sm-10">
-                                        <input  class="form-control" type="text" name="events_name" id="events_name">
-                                                                                    @error('events_name')
-                                                                                    <span class="text-danger">{{$message}}</span>
-                                                                                    @enderror
+                                        <input name="events_title" class="form-control" type="text"  id="events_title">
+                                        @error('events_title')
+                                        <span class="text-danger">{{$message}}</span>
+                                        @enderror
                                     </div>
                                 </div>
-                                <!-- end row -->
                                 <div class="row mb-3">
                                     <label for="example-text-input" class="col-sm-2 col-form-label">Event description</label>
                                     <div class="col-sm-10">
-                                        <input  class="form-control" type="text" name="events_description" id="events_description">
-                                                                                @error('events_description')
-                                                                                <span class="text-danger">{{$message}}</span>
-                                                                                @enderror
+                                        <input name="events_description" class="form-control" type="text"  id="events_description">
+                                        @error('events_description')
+                                        <span class="text-danger">{{$message}}</span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <!-- end row -->
+                                <!-- end row -->
+
+                                <div class="row mb-3">
+                                    <label for="example-text-input" class="col-sm-2 col-form-label">Event Details</label>
+                                    <div class="col-sm-10">
+
+                                        <textarea id="elm1"name="events_detail"></textarea>
+                                        @error('events_detail')
+                                        <span class="text-danger">{{$message}}</span>
+                                        @enderror
+
+
                                     </div>
                                 </div>
                                 <!-- end row -->
 
+
+
+
+
                                 <div class="row mb-3">
-                                    <label for="example-text-input" class="col-sm-2 col-form-label"> Event Url</label>
+                                    <label for="example-text-input" class="col-sm-2 col-form-label">Event Image </label>
                                     <div class="col-sm-10">
-                                        <input  class="form-control" type="text" name="events_url" id="name">
-                                                                                    @error('events_url')
-                                                                                    <span class="text-danger">{{$message}}</span>
-                                                                                    @enderror
+                                        <input name="event_image" class="form-control" type="file"  id="image">
+
+
+                                        @error('event_image')
+                                        <span class="text-danger">{{$message}}</span>
+                                        @enderror
                                     </div>
                                 </div>
+                                <!-- end row -->
+                                <div class="row mb-3">
+                                    <label for="example-text-input"class="col-sm-2col-form-label"></label>
+                                    <div class="col-sm-10">
+                                        <img id="showImage"class="rounded avatar-lg"src="{{url('upload/no_image.jpg')}}"alt="Cardimagecap">
+                                    </div>
+                                </div>
+
+
 
                                 <!-- end row -->
                                 <input type="submit" class="btn btn-info waves-effect waves-light" value="Create Event">
