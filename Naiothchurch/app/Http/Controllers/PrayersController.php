@@ -90,10 +90,21 @@ class PrayersController extends Controller
     {
 
         $prayer_id = $request->id;
+        $embeddedLink = $this->getEmbeddedLink($request->prayers_url);
+
+        if (!$embeddedLink) {
+            // Handle invalid YouTube link
+            $notification = array(
+                'message' => 'Invalid YouTube link. Please provide a valid YouTube URL.',
+                'alert-type' => 'error'
+            );
+
+            return redirect()->back()->withInput()->with($notification);
+        }
 
         Prayers::findOrFail($prayer_id)->update([
             'prayers_name' => $request->prayers_name,
-            'prayers_url' => $request->prayers_url,
+            'prayers_url' => $embeddedLink,
             'prayers_description' => $request->prayers_description,
 
         ]);

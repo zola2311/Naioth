@@ -21,7 +21,7 @@ class CategoryController extends Controller
     {
         //$test=dd($request);
         $request->validate([
-            'name' => 'required|alpha',
+            'name' => 'required',
             'category_image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
             'description' => 'required',
         ],[
@@ -38,7 +38,7 @@ class CategoryController extends Controller
 
         $name_gen = hexdec(uniqid()).'.'.$category_image->getClientOriginalExtension();  // 3434343443.jpg
 
-        Image::make($category_image)->resize(1020,519)->save('upload/categories/'.$name_gen);
+        Image::make($category_image)->resize(800,600)->save('upload/categories/'.$name_gen);
         $save_url = 'upload/categories/'.$name_gen;
 
         Category::insert([
@@ -73,7 +73,7 @@ class CategoryController extends Controller
 
     public function UpdateCategory(Request $request){
         $request->validate([
-            'name' => 'required|alpha',
+            'name' => 'required',
             'category_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'description' => 'required',
         ],[
@@ -91,7 +91,7 @@ class CategoryController extends Controller
             $image = $request->file('category_image');
             $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();  // 3434343443.jpg
 
-            Image::make($image)->resize(1020,519)->save('upload/categories/'.$name_gen);
+            Image::make($image)->resize(800,600)->save('upload/categories/'.$name_gen);
             $save_url = 'upload/categories/'.$name_gen;
 
             Category::findOrFail($category_id)->update([

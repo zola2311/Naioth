@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('testimonies_name')->nullable();
             $table->string('testimonies_url')->nullable();
-            $table->string('testimonies_description')->nullable();
+            $table->text('testimonies_description')->nullable();
             $table->timestamps();
         });
     }

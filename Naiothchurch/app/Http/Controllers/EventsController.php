@@ -15,16 +15,16 @@ class EventsController extends Controller
     }
 
     public function StoreEvent(Request $request){
-//        $request->validate([
-//            'events_description'=>'required|alpha',
-//            'event_image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-//            'events_name'=>'required',
-//            'events_title'=>'required'
-//
-//        ],
-//            ['event_image.required' => 'Please select an image.',
-//            'event_image.image' => 'The file must be an image.',
-//            'event_image.mimes' => 'Only JPEG, PNG, JPG, and GIF images are allowed.']);
+        $request->validate([
+            'events_description'=>'required',
+            'event_image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'events_name'=>'required',
+            'events_title'=>'required'
+
+        ],
+            ['event_image.required' => 'Please select an image.',
+            'event_image.image' => 'The file must be an image.',
+            'event_image.mimes' => 'Only JPEG, PNG, JPG, and GIF images are allowed.']);
 
         $event_image = $request->file('event_image');
         $name_gen = hexdec(uniqid()).'.'.$event_image->getClientOriginalExtension();  // 3434343443.jpg
@@ -62,16 +62,16 @@ class EventsController extends Controller
 
     public function UpdateEvent(Request $request)
     {
-//        $request->validate([
-//            'events_description' => 'required|alpha',
-//            'event_image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-//            'events_detail' => 'required',
-//            'events_title' => 'required'
-//
-//        ],
-//            ['event_image.required' => 'Please select an image.',
-//                'event_image.image' => 'The file must be an image.',
-//                'event_image.mimes' => 'Only JPEG, PNG, JPG, and GIF images are allowed.']);
+        $request->validate([
+            'events_description' => 'required|alpha',
+            'event_image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'events_detail' => 'required',
+            'events_title' => 'required'
+
+        ],
+            ['event_image.required' => 'Please select an image.',
+                'event_image.image' => 'The file must be an image.',
+                'event_image.mimes' => 'Only JPEG, PNG, JPG, and GIF images are allowed.']);
 
         $event_id = $request->id;
 

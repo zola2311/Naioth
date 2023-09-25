@@ -30,10 +30,9 @@
                                 <thead>
                                 <tr>
                                     <th>Sl</th>
-                                    <th>Articles Title</th>
                                     <th>Articles Image</th>
+                                    <th>Articles Title</th>
                                     <th>Articles Description</th>
-                                    <th>Articles Details</th>
                                     <th>Action</th>
 
                                 </thead>
@@ -44,10 +43,18 @@
                                 @foreach($articles as $item)
                                     <tr>
                                         <td> {{ $i++}} </td>
-                                        <td> {{ $item->articles_title}} </td>
-                                        <td> <img src="{{ asset($item->article_image) }}" style="width: 60px; height: 50px;">  </td>
-                                        <td> {{ Str::limit($item->articles_description, 50)}} </td>
-                                        <td> {{ Str::limit($item->articles_detail,50)}} </td>
+                                        <td> @if($item->article_image)
+                                            <img src="{{ asset($item->article_image) }}" style="width: 60px; height: 50px;">
+                                            @else
+                                                <img src="{{url('upload/no_image.jpg')}}" style="width: 60px; height: 50px;">
+                                            @endif
+                                        </td>
+                                        <td> {{ Str::limit ($item->articles_title, 50 )}} </td>
+                                        <td> {{ Str::limit($item->articles_description, 30)}} </td>
+
+
+
+
 
                                         <td>
                                             <a href="{{ route('edit.article',$item->id) }}" class="btn btn-info sm" title="Edit Data">  <i class="fas fa-edit"></i> </a>

@@ -8,10 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 class ContactController extends Controller
 {
-    //
-//    public function Contact(){
-//        return view('front_end.contact');
-//    } // end mehtod
+
 
 
     public function StoreMessage(Request $request)

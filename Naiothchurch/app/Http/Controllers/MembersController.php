@@ -33,7 +33,7 @@ class MembersController extends Controller
 
         $name_gen = hexdec(uniqid()).'.'.$member_image->getClientOriginalExtension();  // 3434343443.jpg
 
-        Image::make($member_image)->resize(1020,519)->save('upload/members/'.$name_gen);
+        Image::make($member_image)->resize(600,600)->save('upload/members/'.$name_gen);
         $save_url = 'upload/members/'.$name_gen;
 
         Member::insert([
@@ -74,7 +74,7 @@ class MembersController extends Controller
             $image = $request->file('member_image');
             $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();  // 3434343443.jpg
 
-            Image::make($image)->resize(1020,519)->save('upload/members/'.$name_gen);
+            Image::make($image)->resize(600,600)->save('upload/members/'.$name_gen);
             $save_url = 'upload/members/'.$name_gen;
 
             Member::findOrFail($member_id)->update([

@@ -48,7 +48,7 @@
                     </div>
                 @endif
                 <div>
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d809.7222940502617!2d139.84000696956878!3d35.72894398697964!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188f446d32cb3b%3A0xc73cd04793a7da3!2sHigashiyotsugichiku%20Center!5e0!3m2!1sen!2sjp!4v1685803418338!5m2!1sen!2sjp" width="1080" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d809.7222940502617!2d139.84000696956878!3d35.72894398697964!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188f446d32cb3b%3A0xc73cd04793a7da3!2sHigashiyotsugichiku%20Center!5e0!3m2!1sen!2sjp!4v1685803418338!5m2!1sen!2sjp" width="1300" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 {{--                    <iframe style="border:0; width: 100%; height: 340px;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" allowfullscreen></iframe>--}}
                 </div><!-- End Google Maps -->
 

@@ -14,7 +14,25 @@ class SermonController extends Controller
     {
         return view('admin.sermons.create_sermons');
     }
+    public function getEmbeddedLink($youtubeLink)
+    {
+        // Regular expression pattern to extract video ID
+        $pattern = '/(?:youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]+)/';
+        preg_match($pattern, $youtubeLink, $matches);
 
+        if (count($matches) >= 2) {
+            // Extracted video ID
+            $videoId = $matches[1];
+
+            // Construct the embedded link without "https:"
+            $embeddedLink = "//www.youtube.com/embed/{$videoId}";
+
+            return $embeddedLink;
+        }
+
+        // Handle invalid YouTube link
+        return null;
+    }
 
     public function StoreSermon(Request $request){
 
@@ -25,9 +43,20 @@ class SermonController extends Controller
             'sermons_description'=>'required'
 
         ]);
+        // Extract the embedded YouTube link from the provided URL
+        $embeddedLink = $this->getEmbeddedLink($request->sermons_url);
+        if (!$embeddedLink) {
+            // Handle invalid YouTube link
+            $notification = array(
+                'message' => 'Invalid YouTube link. Please provide a valid YouTube URL.',
+                'alert-type' => 'error'
+            );
+
+            return redirect()->back()->withInput()->with($notification);
+        }
         Sermons::insert([
             'sermons_name' => $request->sermons_name,
-            'sermons_url' => $request->sermons_url,
+            'sermons_url' => $embeddedLink,
             'sermons_description' => $request->sermons_description,
 
         ]);
@@ -60,10 +89,19 @@ class SermonController extends Controller
     {
 
         $sermon_id = $request->id;
+        $embeddedLink = $this->getEmbeddedLink($request->sermons_url);
+        if (!$embeddedLink) {
+            // Handle invalid YouTube link
+            $notification = array(
+                'message' => 'Invalid YouTube link. Please provide a valid YouTube URL.',
+                'alert-type' => 'error'
+            );
 
+            return redirect()->back()->withInput()->with($notification);
+        }
         Sermons::findOrFail($sermon_id)->update([
             'sermons_name' => $request->sermons_name,
-            'sermons_url' => $request->sermons_url,
+            'sermons_url' => $embeddedLink,
             'sermons_description' => $request->sermons_description,
 
         ]);

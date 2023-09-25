@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('shorts_name')->nullable();
             $table->string('shorts_url')->nullable();
-            $table->string('shorts_description')->nullable();
+            $table->text('shorts_description')->nullable();
             $table->timestamps();
         });
     }

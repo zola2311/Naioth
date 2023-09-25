@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('series_name')->nullable();
             $table->string('series_url')->nullable();
-            $table->string('series_description')->nullable();
+            $table->text('series_description')->nullable();
             $table->timestamps();
         });
     }

@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('prayers_name')->nullable();
             $table->string('prayers_url')->nullable();
-            $table->string('prayers_description')->nullable();
+            $table->text('prayers_description')->nullable();
             $table->timestamps();
         });
     }

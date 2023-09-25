@@ -16,7 +16,25 @@ class TestimonyController extends Controller
     {
         return view('admin.testimonies.create_testimonies');
     }
+    public function getEmbeddedLink($youtubeLink)
+    {
+        // Regular expression pattern to extract video ID
+        $pattern = '/(?:youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]+)/';
+        preg_match($pattern, $youtubeLink, $matches);
 
+        if (count($matches) >= 2) {
+            // Extracted video ID
+            $videoId = $matches[1];
+
+            // Construct the embedded link without "https:"
+            $embeddedLink = "//www.youtube.com/embed/{$videoId}";
+
+            return $embeddedLink;
+        }
+
+        // Handle invalid YouTube link
+        return null;
+    }
 
     public function StoreTestimony(Request $request){
         $request->validate([
@@ -25,10 +43,20 @@ class TestimonyController extends Controller
             'testimonies_description'=>'required'
         ]);
 //        $request->validate(['blog_category'=>'required'],['blog_category.required'=>'blog category name ግዴታ ነው',]);
+        // Extract the embedded YouTube link from the provided URL
+        $embeddedLink = $this->getEmbeddedLink($request->testimonies_url);
+        if (!$embeddedLink) {
+            // Handle invalid YouTube link
+            $notification = array(
+                'message' => 'Invalid YouTube link. Please provide a valid YouTube URL.',
+                'alert-type' => 'error'
+            );
 
+            return redirect()->back()->withInput()->with($notification);
+        }
         Testimonies::insert([
             'testimonies_name' => $request->testimonies_name,
-            'testimonies_url' => $request->testimonies_url,
+            'testimonies_url' =>  $embeddedLink,
             'testimonies_description' => $request->testimonies_description,
 
         ]);
@@ -61,10 +89,19 @@ class TestimonyController extends Controller
     {
 
         $testimony_id = $request->id;
+        $embeddedLink = $this->getEmbeddedLink($request->others_url);
+        if (!$embeddedLink) {
+            // Handle invalid YouTube link
+            $notification = array(
+                'message' => 'Invalid YouTube link. Please provide a valid YouTube URL.',
+                'alert-type' => 'error'
+            );
 
+            return redirect()->back()->withInput()->with($notification);
+        }
         Testimonies::findOrFail($testimony_id)->update([
             'testimonies_name' => $request->testimonies_name,
-            'testimonies_url' => $request->testimonies_url,
+            'testimonies_url' => $embeddedLink,
             'testimonies_description' => $request->testimonies_description,
 
         ]);

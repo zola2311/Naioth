@@ -62,7 +62,7 @@
                         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
                             <div class="card">
                                 <div class="card-img">
-                                    <img src="{{asset('front_end/assets/img/sermons.jpg')}}" class="img-fluid" alt="">
+                                    <img src="{{asset('front_end/assets/img/800X600.png')}}" class="img-fluid" alt="">
                                 </div>
                                 <h3><a href="{{route('sermons')}}" class='{{($route=='sermons')?'active':' '}}' class="stretched-link"> Sermons </a></h3>
                                 <p>In our church we regularly learn the word of God for instruction, encouragement and strengtheining our faith.</p>
@@ -72,7 +72,7 @@
                         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
                             <div class="card">
                                 <div class="card-img">
-                                    <img src="{{asset('front_end/assets/img/testimonies.jpg')}}" class="img-fluid" alt="">
+                                    <img src="{{asset('front_end/assets/img/800X600.png')}}" class="img-fluid" alt="">
                                 </div>
                                 <h3><a href="{{route('testimonies')}}" class='{{($route=='testimonies')?'active':' '}}' class="stretched-link"> Testimonies </a></h3>
                                 <p> Here we hear the works of the Lord through the testimonies of the members of our church. </p>
@@ -82,7 +82,7 @@
                         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
                             <div class="card">
                                 <div class="card-img">
-                                    <img src="{{asset('front_end/assets/img/worship.jpg')}}" class="img-fluid" alt="">
+                                    <img src="{{asset('front_end/assets/img/800X600.png')}}" class="img-fluid" alt="">
                                 </div>
                                 <h3><a href="{{route('worships')}}" class='{{($route=='worships')?'active':' '}}' class="stretched-link"> Worship </a></h3>
                                 <p>Worshiping the Lord our God through music and hymns.</p>
@@ -92,7 +92,7 @@
                         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
                             <div class="card">
                                 <div class="card-img">
-                                    <img src="{{asset('front_end/assets/img/prayer.jpg')}}" class="img-fluid" alt="">
+                                    <img src="{{asset('front_end/assets/img/800X600.png')}}" class="img-fluid" alt="">
                                 </div>
                                 <h3><a href="{{route('prayers')}}" class='{{($route=='prayers')?'active':' '}}' class="stretched-link"> Prayer </a></h3>
                                 <p>Coming to the throne of God to commune with our God and find Grace for our daily lives.</p>
@@ -102,7 +102,7 @@
                         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
                             <div class="card">
                                 <div class="card-img">
-                                    <img src="{{asset('front_end/assets/img/exposition.jpg')}}" class="img-fluid" alt="">
+                                    <img src="{{asset('front_end/assets/img/800X600.png')}}" class="img-fluid" alt="">
                                 </div>
                                 <h3><a href="{{route('series')}}" class='{{($route=='series')?'active':' '}}' class="stretched-link"> Expositions </a></h3>
                                 <p> Expositions on Christian living, discipleship, etc.</p>
@@ -112,7 +112,7 @@
                         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
                             <div class="card">
                                 <div class="card-img">
-                                    <img src="{{asset('front_end/assets/img/baby_shower.jpg')}}" class="img-fluid" alt="">
+                                    <img src="{{asset('front_end/assets/img/800X600.png')}}" class="img-fluid" alt="">
                                 </div>
                                 <h3><a href="{{route('others')}}" class='{{($route=='others')?'active':' '}}' class="stretched-link"> Other Collections </a></h3>
                                 <p> Special Church events, birthdays, stories of our church members</p>
@@ -182,7 +182,7 @@
                             <h3>In a foreign land God is our Solace</h3>
                             <p> We would like to invite you to come and serve the Lord Jesus Christ with us. You can also support our mission through prayers and financial/material support.</p>
                             <a class="cta-btn" href="{{route('contact')}}" class='{{($route=='contact')?'active':' '}}'>Contact Us</a>
-                            </dic>
+                         </div>
                         </div>
                     </div>
             </section><!-- End Call To Action Section -->
@@ -199,7 +199,7 @@
                         </div>
 
                         <div class="col-md-5">
-                            <img src = "{{asset('front_end/assets/img/sunday.png')}}" class="img-fluid" alt="">
+                            <img src = "{{asset('front_end/assets/img/875x592.webp')}}" class="img-fluid" alt="">
                         </div>
                         <div class="col-md-7">
                             <h3>Sunday we have our regular worship service.</h3>
@@ -216,7 +216,7 @@
 
                     <div class="row gy-4 align-items-center features-item" data-aos="fade-up">
                         <div class="col-md-5 order-1 order-md-2">
-                            <img src = "{{asset('front_end/assets/img/group_prayer.jpg')}}" class="img-fluid" alt="">
+                            <img src = "{{asset('front_end/assets/img/875x592.webp')}}" class="img-fluid" alt="">
                         </div>
                         <div class="col-md-7 order-2 order-md-1">
                             <h3>Every Tuesday we have group prayer </h3>
@@ -229,7 +229,7 @@
 
                     <div class="row gy-4 align-items-center features-item" data-aos="fade-up">
                         <div class="col-md-5">
-                            <img src = "{{asset('front_end/assets/img/bible.jpg')}}" class="img-fluid" alt="">
+                            <img src = "{{asset('front_end/assets/img/875x592.webp')}}" class="img-fluid" alt="">
                         </div>
                         <div class="col-md-7">
                             <h3>Every Saturday we have our Bible Study Session.</h3>
@@ -244,7 +244,7 @@
 
                     <div class="row gy-4 align-items-center features-item" data-aos="fade-up">
                         <div class="col-md-5 order-1 order-md-2">
-                            <img src = "{{asset('front_end/assets/img/celebrations.jpg')}}" class="img-fluid" alt="">
+                            <img src = "{{asset('front_end/assets/img/875x592.webp')}}" class="img-fluid" alt="">
                         </div>
                         <div class="col-md-7 order-2 order-md-1">
                             <h3>Birthdays, wedding anniversaries, graduations, welcome and farewell parties</h3>

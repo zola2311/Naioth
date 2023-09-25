@@ -43,9 +43,9 @@
                                 @foreach($shorts as $item)
                                     <tr>
                                         <td> {{ $i++}} </td>
-                                        <td> {{ $item->shorts_name}} </td>
-                                        <td> {{Str::limit($item->shorts_description, 50)}} </td>
-                                        <td> {{ $item->shorts_url}} </td>
+                                        <td> {{ Str::limit ($item->shorts_name, 50 )}} </td>
+                                        <td> {{ Str::limit($item->shorts_description, 30)}} </td>
+                                        <td> {{ Str::limit($item->shorts_url, 10 )}} </td>
 
                                         <td>
                                             <a href="{{ route('edit.short',$item->id) }}" class="btn btn-info sm" title="Edit Data">  <i class="fas fa-edit"></i> </a>

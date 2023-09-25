@@ -46,16 +46,22 @@
                         @foreach($testimonies as $item)
                             <div class="col-lg-4 col-md-6 d-flex">
                                 <div class="member">
-                                    <a href="{!! $item->testimonies_url !!}"><img src="{{asset('backend/assets/images/wp7057753-youtube-thumbnails-wallpapers.jpg')}}" alt="" class="img-fluid"></a>
-                                    {{--                            <img src="{{asset('front_end/assets/img/hero-img.png')}}" class="img-fluid" alt="">--}}
+                                    <iframe
+                                        width="100%"
+                                        height="200"
+                                        src="//{{$item->testimonies_url  }}"
+                                        frameborder="0"
+                                        allowfullscreen
+                                    ></iframe>
                                     <div class="member-content">
                                         <h4>{{$item->testimonies_name}}</h4>
                                         <p>
-                                            {{$item->testimonies_description }}
+                                            {{$item->testimonies_description}}
                                         </p>
                                     </div>
                                 </div>
                             </div>
+
                         @endforeach
                     </div>
                 </div>

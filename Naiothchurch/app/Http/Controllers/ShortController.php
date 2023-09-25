@@ -14,7 +14,25 @@ class ShortController extends Controller
     {
         return view('admin.shorts.create_shorts');
     }// End Method
+    public function getEmbeddedLink($youtubeLink)
+    {
+        // Regular expression pattern to extract video ID
+        $pattern = '/(?:youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]+)/';
+        preg_match($pattern, $youtubeLink, $matches);
 
+        if (count($matches) >= 2) {
+            // Extracted video ID
+            $videoId = $matches[1];
+
+            // Construct the embedded link without "https:"
+            $embeddedLink = "//www.youtube.com/embed/{$videoId}";
+
+            return $embeddedLink;
+        }
+
+        // Handle invalid YouTube link
+        return null;
+    }
     public function StoreShort(Request $request){
         $request->validate([
             'shorts_name'=>'required',
@@ -22,11 +40,21 @@ class ShortController extends Controller
             'shorts_description'=>'required'
 
         ]);
-        //        $request->validate(['blog_category'=>'required'],['blog_category.required'=>'blog category name ግዴታ ነው',]);
+        // Extract the embedded YouTube link from the provided URL
+        $embeddedLink = $this->getEmbeddedLink($request->shorts_url);
+        if (!$embeddedLink) {
+            // Handle invalid YouTube link
+            $notification = array(
+                'message' => 'Invalid YouTube link. Please provide a valid YouTube URL.',
+                'alert-type' => 'error'
+            );
+
+            return redirect()->back()->withInput()->with($notification);
+        }
 
         Shorts::insert([
             'shorts_name' => $request->shorts_name,
-            'shorts_url' => $request->shorts_url,
+            'shorts_url' => $embeddedLink,
             'shorts_description' => $request->shorts_description,
         ]);
 
@@ -52,9 +80,19 @@ class ShortController extends Controller
     public function UpdateShort(Request $request)
     {
         $short_id = $request->id;
+        $embeddedLink = $this->getEmbeddedLink($request->shorts_url);
+        if (!$embeddedLink) {
+            // Handle invalid YouTube link
+            $notification = array(
+                'message' => 'Invalid YouTube link. Please provide a valid YouTube URL.',
+                'alert-type' => 'error'
+            );
+
+            return redirect()->back()->withInput()->with($notification);
+        }
         Shorts::findOrFail($short_id)->update([
             'shorts_name' => $request->shorts_name,
-            'shorts_url' => $request->shorts_url,
+            'shorts_url' => $embeddedLink,
             'shorts_description' => $request->shorts_description,
         ]);
         $notification = array(

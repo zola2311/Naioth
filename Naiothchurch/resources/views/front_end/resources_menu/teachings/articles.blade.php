@@ -48,15 +48,17 @@
                         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
                             <div class="card">
                                 <div class="card-img">
-                                    <img src="{{ asset($item->article_image) }}" class="img-fluid" alt="">
+                                    @if($item->article_image)
+                                        <img src="{{ asset($item->article_image) }}" class="img-fluid" alt="">
+                                    @else
+                                        <img src="{{ url('upload/800x600.webp') }}" class="img-fluid" alt="">
+                                    @endif
                                 </div>
-                                <h3><a href="{{ route('opened.article',$item->id) }}"  class="stretched-link"> {{$item->articles_title}} </a></h3>
+                                <h3><a href="{{ route('opened.article',$item->id) }}" class="stretched-link"> {{$item->articles_title}} </a></h3>
                                 <p>{!! $item->articles_description !!}</p>
                             </div>
                         </div><!-- End Card Item -->
                     @endforeach
-
-
                 </div>
 
 

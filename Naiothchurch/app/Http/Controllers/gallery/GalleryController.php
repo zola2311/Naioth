@@ -47,7 +47,7 @@ class GalleryController extends Controller
 
         foreach ($image as $multi_image) {
             $name_gen = hexdec(uniqid()) . '.' . $multi_image->getClientOriginalExtension();
-            Image::make($multi_image)->resize(220, 220)->save('upload/images/' . $name_gen);
+            Image::make($multi_image)->resize(1024, 768)->save('upload/images/' . $name_gen);
             $save_url = 'upload/images/' . $name_gen;
 
             Gallery::insert([

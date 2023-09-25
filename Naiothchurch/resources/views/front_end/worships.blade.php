@@ -40,24 +40,31 @@
                     <h2> Worship and Songs </h2>
                 </div>
 
-                <div class="row gy-4">
 
+
+                <div class="row gy-4">
                     @foreach($worships as $item)
-                    <div class="col-lg-4 col-md-6 d-flex">
-                        <div class="member">
-                            <a href="{!! $item->worships_url !!}"><img src="{{asset('backend/assets/images/wp7057753-youtube-thumbnails-wallpapers.jpg')}}" alt="" class="img-fluid"></a>
-{{--                            <img src="{{asset('front_end/assets/img/hero-img.png')}}" class="img-fluid" alt="">--}}
-                            <div class="member-content">
-                                <h4>{{$item->worships_name}}</h4>
-                                <p>
-                                    {{$item->worships_description }}
-                                </p>
+                        <div class="col-lg-4 col-md-6 d-flex">
+                            <div class="member">
+                                <iframe
+                                    width="100%"
+                                    height="200"
+                                    src="//{!! $item->worships_url !!}"
+                                    frameborder="0"
+                                    allowfullscreen
+                                ></iframe>
+                                <div class="member-content">
+                                    <h4>{{$item->worships_name}}</h4>
+                                    <p>
+                                        {{$item->worships_description }}
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    @endforeach
 
+                    @endforeach
                 </div>
+
             </div>
         </section><!-- End About Us Section -->
 

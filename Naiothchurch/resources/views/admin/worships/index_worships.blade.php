@@ -53,9 +53,9 @@
                                 @foreach($worships as $item)
                                     <tr>
                                         <td> {{ $i++}} </td>
-                                        <td> {{ $item->worships_name}} </td>
-                                        <td> {{ Str::limit($item->worships_description, 50)}} </td>
-                                        <td> {{ $item->worships_url}} </td>
+                                        <td> {{ Str::limit ($item->worships_name, 50 )}} </td>
+                                        <td> {{ Str::limit($item->worships_description, 30)}} </td>
+                                        <td> {{ Str::limit($item->worships_url, 10 )}} </td>
 
                                         <td>
                                             <a href="{{ route('edit.worship',$item->id) }}" class="btn btn-info sm" title="Edit Data">  <i class="fas fa-edit"></i> </a>

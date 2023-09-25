@@ -20,7 +20,6 @@ $route=Route::current()->getName();
                         <li><a href="{{route('about')}}" class='{{($route=='about')?'active':' '}}'> About Naoith in Ramah </a></li>
                         <li><a href="{{route('believe')}}" class='{{($route=='believe')?'active':' '}}'> What we believe </a></li>
                         <li><a href="{{route('members')}}" class='{{($route=='members')?'active':' '}}'>Our members</a></li>
-                        <li><a href="{{route('testimonies')}}" class='{{($route=='testimonies')?'active':' '}}'>Testimonies</a></li>
                     </ul>
                 </li>
                 <li><a href="{{route('gallery')}}" class='{{($route=='gallery')?'active':' '}}'>Gallery</a></li>
@@ -44,7 +43,7 @@ $route=Route::current()->getName();
                 </li>
                 <li><a href="{{route('contact')}}"class='{{($route=='contact')?'active':' '}}'>Contact</a></li>
 
-                <li><a class="get-a-quote" href="{{route('contact')}}">አማርኛ/English</a></li>
+{{--                <li><a class="get-a-quote" href="{{route('contact')}}">አማርኛ/English</a></li>--}}
             </ul>
         </nav><!-- .navbar -->
 

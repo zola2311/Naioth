@@ -28,18 +28,18 @@
                                 </div>
                                 <!-- end row -->
 
-                                <div class="row mb-3">
-                                    <label for="example-text-input" class="col-sm-2 col-form-label">Category Description </label>
-                                    <div class="col-sm-10">
-                                        <input name="description" class="form-control" type="text" value="{{ $category->description }}" id="example-text-input">
 
+
+                                <div class="row mb-3">
+                                    <label for="example-text-input" class="col-sm-2 col-form-label">Category Description</label>
+                                    <div class="col-sm-10">
+                                        <textarea id="elm1"name="description"  >{{ $category->description }}</textarea>
                                         @error('description')
-                                        <span class="text-danger"> {{ $message }} </span>
+                                        <span class="text-danger">{{$message}}</span>
                                         @enderror
                                     </div>
                                 </div>
                                 <!-- end row -->
-
 
 
 

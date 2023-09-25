@@ -32,14 +32,7 @@
 
     <main id="main">
 
-        <!-- ======= Services Section ======= -->
 
-
-        {{--                <ul>--}}
-        {{--                    @foreach ($categories->galleries as $gallery)--}}
-        {{--                        <li>{{ $gallery->name }}</li>--}}
-        {{--                    @endforeach--}}
-        {{--                </ul>--}}
 
         <section id="service" class="services pt-0">
             <div class="container" data-aos="fade-up">
@@ -60,9 +53,8 @@
                                     <img src="{{$category->category_image}}" class="img-fluid" alt="">
                                 </div>
                                 <h3>
-                                    <a href="{{route('gallery.category', ['category_id' => $category->id])}}" class="stretched-link">{{ $category->name }} (Change Picture)</a>
+                                    <a href="{{route('gallery.category', ['category_id' => $category->id])}}" class="stretched-link">{{ $category->name }} </a>
                                 </h3>
-                                {{--                                <p>{{ $category->description }}</p>--}}
                                 <p>{!! $category->description !!}</p>
                             </div>
                         </div>

@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('worships_name')->nullable();
             $table->string('worships_url')->nullable();
-            $table->string('worships_description')->nullable();
+            $table->text('worships_description')->nullable();
             $table->timestamps();
         });
     }

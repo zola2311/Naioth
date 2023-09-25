@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('sermons_name')->nullable();
             $table->string('sermons_url')->nullable();
-            $table->string('sermons_description')->nullable();
+            $table->text('sermons_description')->nullable();
             $table->timestamps();
         });
     }
